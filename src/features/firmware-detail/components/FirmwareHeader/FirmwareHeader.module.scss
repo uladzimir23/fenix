@@ -1,0 +1,115 @@
+// src/features/firmware-detail/components/FirmwareHeader/FirmwareHeader.module.scss
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 25px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background: var(--bg-primary);
+    z-index: 10;
+    border-radius: 22px 22px 0 0;
+  }
+  
+  .headerContent {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    width: 100%;
+    margin-right: 20px;
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .priceSection {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  
+  .price {
+    font-size: 24px !important;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  
+  .buyButton {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: bold;
+  }
+  
+  .metaSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    justify-content: flex-start;
+  }
+  
+  .categoryBadgeWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .categoryBadge {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 12px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    width: fit-content;
+  }
+  
+  .metaInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .carInfo {
+    font-size: 16px;
+    color: var(--text-secondary);
+  }
+  
+  .firmwareMeta {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  
+  .title {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 24px;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    &:hover {
+      color: var(--primary-color-red);
+      background: var(--accent-color-red);
+      border-radius: 10px;
+      scale: 0.97;
+    }
+  }

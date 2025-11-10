@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#./deploy-gh-pages.sh
+
 set -e # Останавливаем скрипт при ошибках
 
 echo "🚀 Starting gh-pages deployment..."

@@ -1,0 +1,126 @@
+// src/features/car-filter/components/AnimatedCard/AnimatedCard.module.scss
+.contentCard {
+    background: var(--bg-primary);
+    box-shadow: var(--box-shadow-primary);
+    border: 1px solid transparent;
+    border-radius: 22px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: auto;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+    scale: 1;
+    position: relative;
+  
+    &:hover {
+      scale: 0.99;
+      background: var(--bg-thirdly);
+      border-radius: 26px;
+      border: 1px solid #359dff80;
+      box-shadow: inset 0px 0px 3px #359dff80;
+    }
+  
+    &.detailed {
+      text-align: left;
+      cursor: pointer;
+  
+      &:hover {
+        transform: translateY(0px);
+        border: 1px solid #359dff80;
+        box-shadow: inset 0px 0px 3px #359dff80;
+        scale: 0.99;
+      }
+    }
+  
+    &.tuningOption {
+      opacity: 0;
+      animation: fadeIn 0.3s ease forwards;
+      padding: 25px 20px;
+  
+      &:hover {
+        transform: translateY(0px);
+        border: 1px solid #359dff51;
+        box-shadow: inset 0px 0px 3px #359dff80;
+        scale: 0.998;
+      }
+    }
+  
+    &.firmwareOption {
+      text-align: left;
+      justify-content: flex-start;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-height: auto;
+  
+      &:hover {
+        transform: translateY(0px);
+        border: 1px solid #359dff80;
+        box-shadow: inset 0px 0px 3px #359dff80;
+        scale: 0.998;
+      }
+    }
+  
+    &.unavailable {
+      opacity: 1;
+      cursor: not-allowed;
+      transition: all 0.3s ease;
+  
+      &:hover {
+        transform: none;
+        transition: all 0.3s ease;
+        cursor: not-allowed;
+        border-color: var(--border-color);
+        box-shadow: none;
+        opacity: 0.7 !important;
+      }
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .firmwareCountBadge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  
+    &.unavailable {
+      background: var(--text-secondary);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .firmwareCountBadge {
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+    }
+  
+    .contentCard {
+      padding: 15px;
+      min-height: 100px;
+    }
+  }

@@ -1,0 +1,138 @@
+// src/features/firmware-detail/FirmwareDetail.module.scss
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+  
+    &.visible {
+      background-color: rgba(0, 0, 0, 0.7);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  
+    &.closing {
+      background-color: rgba(0, 0, 0, 0);
+      opacity: 0;
+    }
+  }
+  
+  .modal {
+    background: var(--bg-primary);
+    border-radius: 28px;
+    max-width: 1200px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--box-shadow-primary);
+    border: 1px solid var(--border-color);
+    transform: translateY(100px) scale(0.95);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), 
+                opacity 0.3s ease,
+                box-shadow 0.3s ease;
+  
+    &.visible {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  
+    &.closing {
+      transform: translateY(100px) scale(0.95);
+      opacity: 0;
+    }
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 8px;
+    padding: 25px;
+  }
+  
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .mainCard {
+    background: var(--bg-primary);
+    box-shadow: var(--box-shadow-primary);
+    border: 1px solid transparent;
+    border-radius: 22px;
+    padding: 25px;
+    transition: all 0.2s ease;
+  
+    &:hover {
+      scale: 0.998;
+    }
+  }
+  
+  .description {
+    margin-bottom: 15px;
+  
+    h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent-color);
+    }
+  }
+  
+  .compatibility,
+  .changelog {
+    margin-top: 20px;
+  
+    h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent-color);
+    }
+  }
+  
+  .changelog pre {
+    background: var(--bg-secondary);
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 13px;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+  }
+  
+  @media (max-width: 968px) {
+    .content {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .overlay {
+      padding: 10px;
+    }
+    
+    .modal {
+      max-height: 95vh;
+      border-radius: 22px;
+    }
+    
+    .content {
+      padding: 20px;
+    }
+  }

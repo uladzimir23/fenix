@@ -12,7 +12,7 @@ import { Login } from '@/pages/Login/Login';
 import { ApiTester } from '@/widgets/ApiTester/ApiTester';
 import '@/app/styles/globals.scss';
 
-export const App: React.FC = () => {
+const App: React.FC = () => {
   return (
     <Router>
       <AuthProvider>
@@ -32,3 +32,5 @@ export const App: React.FC = () => {
     </Router>
   );
 };
+
+export default App; // ← default export

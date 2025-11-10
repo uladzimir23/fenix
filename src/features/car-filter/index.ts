@@ -1,2 +1,2 @@
 // src/features/car-filter/index.ts
-export { CarFilter } from './CarFilter';
+export { CarFilter } from './components/CarFilter';

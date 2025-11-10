@@ -1,11 +1,14 @@
-// src/app/providers/AuthProvider/AuthProvider.tsx
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+// src/app/providers/AuthProvider/AuthProvider.tsx (альтернативная версия)
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { userService, sessionsService, UserProfile, LoginCredentials } from '@/shared/api';
+import { useApi } from '@/shared/api/hooks/useApi';
 
 export interface AuthContextType {
   isAuthenticated: boolean;
-  user: any | null;
-  login: (userData: any) => void;
+  user: UserProfile | null;
+  login: (credentials: LoginCredentials) => Promise<void>;
   logout: () => void;
+  loading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -24,23 +27,61 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<UserProfile | null>(null);
+  const [loading, setLoading] = useState(true);
+  const { isAuthenticated: checkAuth, setAuthToken } = useApi();
 
-  const login = (userData: any) => {
-    setIsAuthenticated(true);
-    setUser(userData);
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        if (checkAuth()) {
+          const userProfile = await userService.getProfile();
+          setUser(userProfile);
+          setIsAuthenticated(true);
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAuthentication();
+  }, [checkAuth]);
+
+  const login = async (credentials: LoginCredentials) => {
+    try {
+      const { accessToken, refreshToken } = await sessionsService.login(credentials);
+      
+      // Используем хук для установки токена
+      setAuthToken(accessToken);
+      
+      const userProfile = await userService.getProfile();
+      setUser(userProfile);
+      setIsAuthenticated(true);
+    } catch (error) {
+      console.error('Login failed:', error);
+      throw error;
+    }
   };
 
-  const logout = () => {
-    setIsAuthenticated(false);
-    setUser(null);
+  const logout = async () => {
+    try {
+      await sessionsService.logout();
+    } catch (error) {
+      console.error('Logout error:', error);
+    } finally {
+      setUser(null);
+      setIsAuthenticated(false);
+    }
   };
 
   const value = {
     isAuthenticated,
     user,
     login,
-    logout
+    logout,
+    loading
   };
 
   return (
