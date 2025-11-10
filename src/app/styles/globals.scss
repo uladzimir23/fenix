@@ -1,0 +1,69 @@
+// src/app/styles/globals.scss
+@import '@/shared/styles/design-tokens';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  margin: 0;
+  padding: 0;
+}
+
+// CSS переменные для светлой темы
+:root {
+  --black-white: black;
+  --bg-primary: white;
+  --bg-primary-opacity: rgba(255, 255, 255, 0.8);
+  --bg-secondary:#F2FBFE;
+  --bg-thirdly: #F2FBFE;
+  --bg-fourthly: #e8f8ff;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-thiirdly: #6c757d;
+  --primary-color: #569cfe;
+  --primary-color-red: #ff0000;
+  --accent-color: #E6F7FD;
+  --accent-color-red: #ff000020;
+  --border-color: #dee2e6;
+  --border-color-accent: #89bbf0;
+  --box-shadow-primary: 0px 0px 2px 1px #223c501a;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+// CSS переменные для темной темы
+body.dark-theme {
+  --black-white: white;
+  --bg-primary: #151517;
+  --bg-primary-opacity: rgba(21, 21, 23, 0.8);
+  --bg-secondary: #56aafe08;
+  --bg-thirdly: #1b1b2378;
+  --bg-fourthly: #56aafe12;
+  --text-primary: #ffffff;
+  --text-secondary: #adb5bd;
+  --text-thirdly: #adb5bd8b;
+  --primary-color: #56aafe;
+  --primary-color-red: #ff0000;
+  --accent-color: #56aafe15;
+  --accent-color-red: #321919;
+  --border-color: #26292d;
+  --border-color-accent: #1E4765;
+  --box-shadow-primary: 0px 0px 2px 1px #223c5075;
+}
+
+.page {
+  padding: 20px;
+  background-color: var(--bg-primary);
+}

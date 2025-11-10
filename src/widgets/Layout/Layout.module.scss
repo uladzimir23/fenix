@@ -1,0 +1,16 @@
+// src/widgets/Layout/Layout.module.scss
+.layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+  }
+  
+  .mainContent {
+    flex: 1;
+    margin-left: 285px;
+    transition: margin-left 0.3s ease;
+    
+    @media (max-width: 767px) {
+      margin-left: 0;
+    }
+  }

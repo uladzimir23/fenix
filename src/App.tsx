@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'  // Изменили путь
-import viteLogo from '/vite.svg'           // Оставляем как есть (из public)
-import './App.css'
+// src/app/App.tsx
+import React from 'react';
+import { HashRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from '@/app/providers/AuthProvider/AuthProvider';
+import { Layout } from '@/widgets/Layout/Layout';
+import { Home } from '@/pages/Home/Home';
+import { Catalog } from '@/pages/Catalog/Catalog';
+import { Profile } from '@/pages/Profile/Profile';
+import { Files } from '@/pages/Files/Files';
+import { Messages } from '@/pages/Messages/Messages';
+import { Login } from '@/pages/Login/Login';
+import { ApiTester } from '@/widgets/ApiTester/ApiTester';
+import '@/app/styles/globals.scss';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export const App: React.FC = () => {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Fenix App</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
-
-export default App
+    <Router>
+      <AuthProvider>
+        <Layout>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/test-api" element={<ApiTester />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/files" element={<Files />} />
+            <Route path="/messages" element={<Messages />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Layout>
+      </AuthProvider>
+    </Router>
+  );
+};

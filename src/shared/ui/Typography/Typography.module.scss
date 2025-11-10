@@ -1,0 +1,46 @@
+// src/shared/ui/Typography/Typography.module.scss
+.typography {
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  
+  .h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+  .body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  
+  .caption {
+    font-size: 0.875rem;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+  
+  .primary {
+    color: var(--text-primary);
+  }
+  
+  .secondary {
+    color: var(--text-secondary);
+  }
+  
+  .accent {
+    color: var(--color-primary-500);
+  }

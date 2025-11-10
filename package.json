@@ -1,6 +1,5 @@
 {
   "name": "fenix",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "homepage": "https://uladzimir23.github.io/fenix",
@@ -8,27 +7,52 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext js,jsx,ts,tsx --fix",
+    "typecheck": "tsc --noEmit",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "deploy:ci": "npm run build && gh-pages -d dist",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint . --ext ts,tsx --fix"
+    "deploy:force": "gh-pages -d dist --force",
+    "deploy:ci": "npm run build && npm run test:run && npm run lint && gh-pages -d dist",
+    "deploy:safe": "git branch backup/deploy-$(date +%Y%m%d-%H%M%S) && npm run deploy",
+    "deploy:auto": "npm run build && git add . && git commit -m 'Auto-deploy preparation' && git push origin main && npm run deploy",
+    "build:analyze": "npm run build && npx serve dist",
+    "clean:build": "rm -rf dist && npm run build",
+    "size-check": "npm run build && npx bundlewatch"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3",
-    "eslint": "^8.45.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.28.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "gh-pages": "^6.0.0",
+    "gh-pages": "^5.0.0",
+    "sass": "^1.93.3",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.3.0",
+    "vitest": "^0.31.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

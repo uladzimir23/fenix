@@ -1,0 +1,52 @@
+// src/shared/styles/_design-tokens.scss
+:root {
+    // Colors
+    --color-primary-50: #f0f9ff;
+    --color-primary-500: #569cfe;
+    --color-primary-900: #1e3a8a;
+    
+    --color-success: #10b981;
+    --color-error: #ef4444;
+    --color-warning: #f59e0b;
+    
+    // Semantic colors
+    --bg-primary: white;
+    --bg-secondary: #F2FBFE;
+    --bg-thirdly: #F2FBFE;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border-color: #dee2e6;
+    
+    // Spacing
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    // Typography
+    --font-family: 'Inter', -apple-system, sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    
+    // Border radius
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    
+    // Shadows
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+  
+  // Dark theme
+  [data-theme="dark"] {
+    --bg-primary: #151517;
+    --bg-secondary: #56aafe08;
+    --text-primary: #ffffff;
+    --text-secondary: #adb5bd;
+    --border-color: #26292d;
+  }

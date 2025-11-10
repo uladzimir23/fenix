@@ -1,0 +1,22 @@
+// src/shared/ui/Layout/Container/Container.module.scss
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+  
+  .sm {
+    max-width: 640px;
+  }
+  
+  .md {
+    max-width: 768px;
+  }
+  
+  .lg {
+    max-width: 1024px;
+  }
+  
+  .full {
+    max-width: 100%;
+  }
