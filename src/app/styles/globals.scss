@@ -73,26 +73,3 @@ body.dark-theme {
   //padding: 20px;
   background-color: var(--bg-primary);
 }
-
-:root {
-  --side-nav-expanded-width: 272px;
-  --side-nav-collapsed-width: 74px;
-  --side-nav-margin: 40px; // 20px + 20px
-  
-  // Автоматически вычисляемые значения
-  --main-content-margin: calc(var(--side-nav-expanded-width) + var(--side-nav-margin));
-  --main-content-margin-collapsed: calc(var(--side-nav-collapsed-width) + var(--side-nav-margin));
-}
-
-// Класс для сжатого состояния
-.side-nav-collapsed {
-  --main-content-margin: var(--main-content-margin-collapsed);
-}
-
-// Медиа-запросы для мобильных устройств
-@media (max-width: 767px) {
-  :root {
-    --main-content-margin: 0;
-    --main-content-margin-collapsed: 0;
-  }
-}

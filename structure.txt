@@ -1,0 +1,230 @@
+.
+├── .github
+│   └── workflows
+│       └── deploy.yml
+├── .vite
+│   └── deps
+│       ├── _metadata.json
+│       ├── chunk-E4RJ5AND.js
+│       ├── chunk-E4RJ5AND.js.map
+│       ├── chunk-Q34MU4L5.js
+│       ├── chunk-Q34MU4L5.js.map
+│       ├── package.json
+│       ├── react-dom_client.js
+│       ├── react-dom_client.js.map
+│       ├── react-router-dom.js
+│       ├── react-router-dom.js.map
+│       ├── react.js
+│       └── react.js.map
+├── public
+│   └── vite.svg
+├── src
+│   ├── app
+│   │   ├── providers
+│   │   │   ├── AuthProvider
+│   │   │   │   └── AuthProvider.tsx
+│   │   │   ├── SideNavProvider
+│   │   │   │   └── SideNavProvider.tsx
+│   │   │   └── index.ts
+│   │   └── styles
+│   │       └── globals.scss
+│   ├── assets
+│   │   └── react.svg
+│   ├── features
+│   │   ├── car-filter
+│   │   │   ├── components
+│   │   │   │   ├── AnimatedCard
+│   │   │   │   │   ├── AnimatedCard.module.scss
+│   │   │   │   │   └── AnimatedCard.tsx
+│   │   │   │   ├── ContentGrid
+│   │   │   │   │   ├── BrandGrid.tsx
+│   │   │   │   │   ├── ContentGrid.tsx
+│   │   │   │   │   ├── EngineGrid.tsx
+│   │   │   │   │   ├── FirmwareGrid.tsx
+│   │   │   │   │   ├── GenerationGrid.tsx
+│   │   │   │   │   ├── ModelGrid.tsx
+│   │   │   │   │   └── TuningOptionsGrid.tsx
+│   │   │   │   ├── FilterPanel
+│   │   │   │   │   ├── Breadcrumbs.tsx
+│   │   │   │   │   ├── FilterButtons.tsx
+│   │   │   │   │   ├── FilterPanel.tsx
+│   │   │   │   │   ├── SearchInput.tsx
+│   │   │   │   │   └── SelectedItems.tsx
+│   │   │   │   ├── ResultsPanel
+│   │   │   │   │   ├── ResultsContent.tsx
+│   │   │   │   │   ├── ResultsHeader.tsx
+│   │   │   │   │   └── ResultsPanel.tsx
+│   │   │   │   ├── CarFilter.module.scss
+│   │   │   │   └── CarFilter.tsx
+│   │   │   ├── hooks
+│   │   │   │   ├── useCarFilter.ts
+│   │   │   │   ├── useCarFilterData.ts
+│   │   │   │   └── useScrollAnimation.ts
+│   │   │   ├── styles
+│   │   │   │   └── CarFilter.scss
+│   │   │   ├── types
+│   │   │   │   └── car-filter.types.ts
+│   │   │   └── index.ts
+│   │   └── firmware-detail
+│   │       ├── components
+│   │       │   ├── FirmwareHeader
+│   │       │   │   ├── FirmwareHeader.module.scss
+│   │       │   │   ├── FirmwareHeader.tsx
+│   │       │   │   └── index.ts
+│   │       │   ├── FirmwareModal
+│   │       │   │   ├── FirmwareModal.module.scss
+│   │       │   │   ├── FirmwareModal.tsx
+│   │       │   │   └── index.ts
+│   │       │   ├── FirmwareRequirements
+│   │       │   │   ├── FirmwareRequirements.module.scss
+│   │       │   │   ├── FirmwareRequirements.tsx
+│   │       │   │   └── index.ts
+│   │       │   ├── FirmwareSidebar
+│   │       │   │   ├── FirmwareSidebar.module.scss
+│   │       │   │   ├── FirmwareSidebar.tsx
+│   │       │   │   └── index.ts
+│   │       │   └── FirmwareSpecs
+│   │       │       ├── FirmwareSpecs.module.scss
+│   │       │       ├── FirmwareSpecs.tsx
+│   │       │       └── index.ts
+│   │       ├── hooks
+│   │       │   └── useFirmwareDetail.ts
+│   │       ├── types
+│   │       │   └── firmware-detail.types.ts
+│   │       ├── FirmwareDetail.module.scss
+│   │       ├── FirmwareDetail.tsx
+│   │       └── index.ts
+│   ├── pages
+│   │   ├── Catalog
+│   │   │   └── Catalog.tsx
+│   │   ├── Files
+│   │   │   └── Files.tsx
+│   │   ├── Home
+│   │   │   ├── Home.module.scss
+│   │   │   └── Home.tsx
+│   │   ├── Login
+│   │   │   └── Login.tsx
+│   │   ├── Messages
+│   │   │   └── Messages.tsx
+│   │   ├── Profile
+│   │   │   └── Profile.tsx
+│   │   └── index.ts
+│   ├── shared
+│   │   ├── api
+│   │   │   ├── client
+│   │   │   │   └── apiClient.ts
+│   │   │   ├── hooks
+│   │   │   │   └── useApi.ts
+│   │   │   ├── services
+│   │   │   │   ├── auth
+│   │   │   │   │   ├── sessions.ts
+│   │   │   │   │   └── user.ts
+│   │   │   │   ├── cars
+│   │   │   │   │   └── cars.ts
+│   │   │   │   ├── firmware
+│   │   │   │   │   └── firmwareService.ts
+│   │   │   │   ├── requests
+│   │   │   │   │   ├── request.ts
+│   │   │   │   │   └── requestAdmin.ts
+│   │   │   │   ├── tuning
+│   │   │   │   │   └── tuningOptions.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── test
+│   │   │   │   └── api-test.ts
+│   │   │   ├── types
+│   │   │   │   ├── auth.ts
+│   │   │   │   ├── cars.ts
+│   │   │   │   ├── firmware.ts
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── requests.ts
+│   │   │   │   └── tuning.ts
+│   │   │   └── index.ts
+│   │   ├── components
+│   │   │   └── ThemeToggle
+│   │   │       ├── ThemeToggle.module.scss
+│   │   │       └── ThemeToggle.tsx
+│   │   ├── hooks
+│   │   │   ├── useSideNavWidth.ts
+│   │   │   └── useTheme.ts
+│   │   ├── lib
+│   │   │   ├── data
+│   │   │   │   ├── car-data
+│   │   │   │   │   ├── index.ts
+│   │   │   │   │   └── types.ts
+│   │   │   │   ├── firmware
+│   │   │   │   │   ├── index.ts
+│   │   │   │   │   └── types.ts
+│   │   │   │   ├── tuning-options
+│   │   │   │   │   ├── index.ts
+│   │   │   │   │   └── types.ts
+│   │   │   │   └── index.ts
+│   │   │   └── index.ts
+│   │   ├── styles
+│   │   │   └── _design-tokens.scss
+│   │   └── ui
+│   │       ├── Button
+│   │       │   ├── Button.module.scss
+│   │       │   └── Button.tsx
+│   │       ├── Icon
+│   │       │   ├── Icon.module.scss
+│   │       │   └── Icon.tsx
+│   │       ├── Layout
+│   │       │   └── Container
+│   │       │       ├── Container.module.scss
+│   │       │       └── Container.tsx
+│   │       └── Typography
+│   │           ├── Typography.module.scss
+│   │           └── Typography.tsx
+│   ├── widgets
+│   │   ├── ApiTester
+│   │   │   └── ApiTester.tsx
+│   │   ├── Layout
+│   │   │   ├── Layout.module.scss
+│   │   │   ├── Layout.tsx
+│   │   │   └── index.ts
+│   │   ├── SideNav
+│   │   │   ├── components
+│   │   │   │   ├── LogoSection
+│   │   │   │   │   ├── LogoSection.module.scss
+│   │   │   │   │   └── LogoSection.tsx
+│   │   │   │   ├── NavSection
+│   │   │   │   │   ├── NavSection.module.scss
+│   │   │   │   │   └── NavSection.tsx
+│   │   │   │   └── UserProfile
+│   │   │   │       ├── UserProfile.module.scss
+│   │   │   │       └── UserProfile.tsx
+│   │   │   ├── SideNav.module.scss
+│   │   │   └── SideNav.tsx
+│   │   └── index.ts
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── temp-deploy
+│   ├── assets
+│   │   ├── index-997b4b65.css
+│   │   ├── index-b1031a3f.js
+│   │   ├── index-b1031a3f.js.map
+│   │   ├── router-48998a99.js
+│   │   ├── router-48998a99.js.map
+│   │   ├── vendor-b69f2a9f.js
+│   │   └── vendor-b69f2a9f.js.map
+│   ├── index.html
+│   └── vite.svg
+├── .eslintrc.cjs
+├── .gitignore
+├── README.md
+├── copy-structure.sh
+├── deploy-gh-pages.sh
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── structure.txt
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+76 directories, 152 files
