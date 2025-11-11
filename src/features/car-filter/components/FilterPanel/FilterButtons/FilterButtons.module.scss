@@ -1,0 +1,35 @@
+.buttonsContainer {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .clearButton, .backButton {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
+  .clearButton:hover {
+    border-color: transparent;
+    transition: all 0.2s ease;
+    color: var(--primary-color-red);
+    background-color: var(--bg-secondary);
+  }
+  
+  .backButton:hover {
+    border-color: transparent;
+    transition: all 0.2s ease;
+    color: var(--primary-color);
+    background-color: var(--bg-secondary);
+  }

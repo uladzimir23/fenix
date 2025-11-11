@@ -1,8 +1,8 @@
-// src/features/car-filter/components/ResultsPanel/ResultsHeader.tsx
 import React from 'react';
 import { FaTimes } from 'react-icons/fa';
 import Icon from '@/shared/ui/Icon/Icon.tsx';
-import { CarFilterState } from '../../types/car-filter.types';
+import { CarFilterState } from '../../../types/car-filter.types';
+import styles from './ResultsHeader.module.scss';
 
 interface ResultsHeaderProps {
   state: CarFilterState;
@@ -31,10 +31,10 @@ export const ResultsHeader: React.FC<ResultsHeaderProps> = ({
     selectedEngine || selectedTuningOption || Object.values(state.searchTerms).some(term => term !== '');
 
   return (
-    <div className="results-header">
+    <div className={styles.resultsHeader}>
       <h2>{getTitle()}</h2>
       {hasActiveFilters && (
-        <button className="clear-results" onClick={onClearAll}>
+        <button className={styles.clearResults} onClick={onClearAll}>
           <Icon icon={FaTimes} /> Очистить
         </button>
       )}

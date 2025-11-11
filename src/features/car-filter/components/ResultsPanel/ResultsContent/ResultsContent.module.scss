@@ -1,0 +1,38 @@
+.resultsContent {
+    width: 100%;
+    position: relative;
+    flex: 1;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto; // Изменено с visible на auto
+  
+    &:not(.scrolling) .fadeOverlay {
+      opacity: 0;
+    }
+  
+    &.scrolling .fadeOverlay {
+      opacity: 1;
+    }
+  }
+  
+  .fadeOverlay {
+    position: sticky;
+    left: 0;
+    right: 0;
+    height: 80px;
+    pointer-events: none;
+    z-index: 5;
+    transition: all 0.3s ease;
+  }
+  
+  .topFade {
+    top: -25px;
+    background: linear-gradient(to bottom, var(--bg-primary) 40%, transparent 100%);
+    margin-bottom: -80px;
+    width: 100%;
+  }
+  
+  .bottomFade {
+    bottom: -20px;
+    background: linear-gradient(to top, var(--bg-primary) 40%, transparent 100%);
+    margin-top: -40px;
+  }

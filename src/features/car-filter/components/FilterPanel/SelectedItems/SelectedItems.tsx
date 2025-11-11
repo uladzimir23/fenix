@@ -1,8 +1,8 @@
-// src/features/car-filter/components/FilterPanel/SelectedItems.tsx
 import React from 'react';
 import { FaTimes } from 'react-icons/fa';
 import Icon from '@/shared/ui/Icon/Icon.tsx';
-import { CarFilterState, RemoveIconHoverState } from '../../types/car-filter.types';
+import { CarFilterState, RemoveIconHoverState } from '../../../types/car-filter.types';
+import styles from './SelectedItems.module.scss';
 
 interface SelectedItemsProps {
   state: CarFilterState;
@@ -41,13 +41,13 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
   return (
     <>
       {selectedBrand && (
-        <div className="selection-info">
-          <div className={`selected-item ${removeIconHover.brand ? 'remove-icon-hover' : ''}`}>
+        <div className={styles.selectionInfo}>
+          <div className={`${styles.selectedItem} ${removeIconHover.brand ? styles.removeIconHover : ''}`}>
             <span>{selectedBrand.name}</span>
             <Icon
               icon={FaTimes}
-              size = 'xl'
-              className="remove-icon"
+              size='xl'
+              className={styles.removeIcon}
               onClick={onBrandRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('brand')}
               onMouseLeave={() => onRemoveIconMouseLeave('brand')}
@@ -57,13 +57,13 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
       )}
 
       {selectedModel && (
-        <div className="selection-info">
-          <div className={`selected-item ${removeIconHover.model ? 'remove-icon-hover' : ''}`}>
+        <div className={styles.selectionInfo}>
+          <div className={`${styles.selectedItem} ${removeIconHover.model ? styles.removeIconHover : ''}`}>
             <span>{selectedModel.name}</span>
             <Icon
               icon={FaTimes}
-              size = 'xl'
-              className="remove-icon"
+              size='xl'
+              className={styles.removeIcon}
               onClick={onModelRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('model')}
               onMouseLeave={() => onRemoveIconMouseLeave('model')}
@@ -73,13 +73,13 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
       )}
 
       {selectedGeneration && (
-        <div className="selection-info">
-          <div className={`selected-item ${removeIconHover.generation ? 'remove-icon-hover' : ''}`}>
+        <div className={styles.selectionInfo}>
+          <div className={`${styles.selectedItem} ${removeIconHover.generation ? styles.removeIconHover : ''}`}>
             <span>{selectedGeneration.body} ({selectedGeneration.years})</span>
             <Icon
               icon={FaTimes}
-              size = 'xl'
-              className="remove-icon"
+              size='xl'
+              className={styles.removeIcon}
               onClick={onGenerationRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('generation')}
               onMouseLeave={() => onRemoveIconMouseLeave('generation')}
@@ -89,13 +89,13 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
       )}
 
       {selectedEngine && (
-        <div className="selection-info">
-          <div className={`selected-item ${removeIconHover.engine ? 'remove-icon-hover' : ''}`}>
+        <div className={styles.selectionInfo}>
+          <div className={`${styles.selectedItem} ${removeIconHover.engine ? styles.removeIconHover : ''}`}>
             <span>{selectedEngine}</span>
             <Icon
               icon={FaTimes}
-              size = 'xl'
-              className="remove-icon"
+              size='xl'
+              className={styles.removeIcon}
               onClick={onEngineRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('engine')}
               onMouseLeave={() => onRemoveIconMouseLeave('engine')}
@@ -105,13 +105,13 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
       )}
 
       {selectedTuningOption && (
-        <div className="selection-info">
-          <div className={`selected-item ${removeIconHover.tuningOption ? 'remove-icon-hover' : ''}`}>
+        <div className={styles.selectionInfo}>
+          <div className={`${styles.selectedItem} ${removeIconHover.tuningOption ? styles.removeIconHover : ''}`}>
             <span>{selectedTuningOption.name}</span>
             <Icon
               icon={FaTimes}
-              size = 'xl'
-              className="remove-icon"
+              size='xl'
+              className={styles.removeIcon}
               onClick={onTuningOptionRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('tuningOption')}
               onMouseLeave={() => onRemoveIconMouseLeave('tuningOption')}
@@ -121,13 +121,13 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
       )}
 
       {selectedFirmware && (
-        <div className="selection-info">
-          <div className={`selected-item ${removeIconHover.firmware ? 'remove-icon-hover' : ''}`}>
+        <div className={styles.selectionInfo}>
+          <div className={`${styles.selectedItem} ${removeIconHover.firmware ? styles.removeIconHover : ''}`}>
             <span>{selectedFirmware.name}</span>
             <Icon
               icon={FaTimes}
-              size = 'xl'
-              className="remove-icon"
+              size='xl'
+              className={styles.removeIcon}
               onClick={onFirmwareRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('firmware')}
               onMouseLeave={() => onRemoveIconMouseLeave('firmware')}

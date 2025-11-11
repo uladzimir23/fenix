@@ -1,8 +1,8 @@
-// src/features/car-filter/components/FilterPanel/Breadcrumbs.tsx
 import React from 'react';
 import { CarBrand, CarModel, Generation } from '@/shared/lib/data';
 import { TuningOption } from '@/shared/api';
-import { ViewMode } from '../../types/car-filter.types';
+import { ViewMode } from '../../../types/car-filter.types';
+import styles from './Breadcrumbs.module.scss';
 
 interface BreadcrumbsProps {
   viewMode: ViewMode;
@@ -24,18 +24,18 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   onBreadcrumbClick
 }) => {
   return (
-    <div className="breadcrumbs">
+    <div className={styles.breadcrumbs}>
       <span
-        className={viewMode === 'brands' ? 'active' : ''}
+        className={`${styles.breadcrumbItem} ${viewMode === 'brands' ? styles.active : ''}`}
         onClick={() => onBreadcrumbClick('brands')}
       >
         Марки
       </span>
       {selectedBrand && (
         <>
-          <span className="breadcrumb-separator">›</span>
+          <span className={styles.breadcrumbSeparator}>›</span>
           <span
-            className={viewMode === 'models' ? 'active' : ''}
+            className={`${styles.breadcrumbItem} ${viewMode === 'models' ? styles.active : ''}`}
             onClick={() => onBreadcrumbClick('models')}
           >
             {selectedBrand.name}
@@ -44,9 +44,9 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
       )}
       {selectedModel && (
         <>
-          <span className="breadcrumb-separator">›</span>
+          <span className={styles.breadcrumbSeparator}>›</span>
           <span
-            className={viewMode === 'generations' ? 'active' : ''}
+            className={`${styles.breadcrumbItem} ${viewMode === 'generations' ? styles.active : ''}`}
             onClick={() => onBreadcrumbClick('generations')}
           >
             {selectedModel.name}
@@ -55,9 +55,9 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
       )}
       {selectedGeneration && (
         <>
-          <span className="breadcrumb-separator">›</span>
+          <span className={styles.breadcrumbSeparator}>›</span>
           <span
-            className={viewMode === 'engines' ? 'active' : ''}
+            className={`${styles.breadcrumbItem} ${viewMode === 'engines' ? styles.active : ''}`}
             onClick={() => onBreadcrumbClick('engines')}
           >
             {selectedGeneration.body}
@@ -66,9 +66,9 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
       )}
       {selectedEngine && (
         <>
-          <span className="breadcrumb-separator">›</span>
+          <span className={styles.breadcrumbSeparator}>›</span>
           <span
-            className={viewMode === 'tuning' ? 'active' : ''}
+            className={`${styles.breadcrumbItem} ${viewMode === 'tuning' ? styles.active : ''}`}
             onClick={() => onBreadcrumbClick('tuning')}
           >
             Двигатель
@@ -77,9 +77,9 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
       )}
       {selectedTuningOption && (
         <>
-          <span className="breadcrumb-separator">›</span>
+          <span className={styles.breadcrumbSeparator}>›</span>
           <span
-            className={viewMode === 'firmware' ? 'active' : ''}
+            className={`${styles.breadcrumbItem} ${viewMode === 'firmware' ? styles.active : ''}`}
             onClick={() => onBreadcrumbClick('firmware')}
           >
             {selectedTuningOption.name}

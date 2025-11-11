@@ -1,0 +1,21 @@
+@import '../ContentGrid.module.scss';
+
+.modelCard {
+  h3 {
+    margin: 0 0 5px 0;
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  p {
+    margin: 5px 0 0 0;
+    color: var(--text-secondary);
+  }
+}
+
+.modelCard:hover {
+  h3 {
+    color: var(--primary-color);
+  }
+}

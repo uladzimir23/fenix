@@ -1,7 +1,7 @@
-// src/features/car-filter/components/FilterPanel/SearchInput.tsx
 import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import Icon from '@/shared/ui/Icon/Icon.tsx';
+import styles from './SearchInput.module.scss';
 
 interface SearchInputProps {
   value: string;
@@ -15,8 +15,8 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   onChange
 }) => {
   return (
-    <div className="search-input">
-      <Icon icon={FaSearch} className="search-icon" />
+    <div className={styles.searchInput}>
+      <Icon icon={FaSearch} className={styles.searchIcon} />
       <input
         type="text"
         placeholder={placeholder}

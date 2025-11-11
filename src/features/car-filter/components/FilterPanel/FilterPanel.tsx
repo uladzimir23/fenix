@@ -1,15 +1,15 @@
-// src/features/car-filter/components/FilterPanel/FilterPanel.tsx
 import React from 'react';
 import { CarFilterState, RemoveIconHoverState, ViewMode } from '../../types/car-filter.types';
-import { Breadcrumbs } from './Breadcrumbs';
-import { SearchInput } from './SearchInput';
-import { SelectedItems } from './SelectedItems';
-import { FilterButtons } from './FilterButtons';
+import { Breadcrumbs } from './Breadcrumbs/Breadcrumbs';
+import { SearchInput } from './SearchInput/SearchInput';
+import { SelectedItems } from './SelectedItems/SelectedItems';
+import { FilterButtons } from './FilterButtons/FilterButtons';
+import styles from './FilterPanel.module.scss';
 
 interface FilterPanelProps {
   state: CarFilterState;
   removeIconHover: RemoveIconHoverState;
-  onViewModeChange: (mode: ViewMode) => void; // Изменили string на ViewMode
+  onViewModeChange: (mode: ViewMode) => void;
   onSearchChange: (value: string) => void;
   onRemoveIconMouseEnter: (type: keyof RemoveIconHoverState) => void;
   onRemoveIconMouseLeave: (type: keyof RemoveIconHoverState) => void;
@@ -41,7 +41,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
   onClearAll,
   getPlaceholderText
 }) => {
-  const hasActiveFilters = Boolean( // Добавили Boolean для приведения к boolean
+  const hasActiveFilters = Boolean(
     state.selectedBrand || 
     state.selectedModel || 
     state.selectedGeneration || 
@@ -52,11 +52,11 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
   );
 
   return (
-    <div className="filter-panel">
-      <div className='header-filter-panel'>
+    <div className={styles.filterPanel}>
+      <div className={styles.headerFilterPanel}>
         <h2>Поиск прошивок</h2>
       </div>
-      <div className='results-filter-panel'>
+      <div className={styles.resultsFilterPanel}>
         <Breadcrumbs
           viewMode={state.viewMode}
           selectedBrand={state.selectedBrand}

@@ -1,6 +1,6 @@
-// src/features/car-filter/components/FilterPanel/FilterButtons.tsx
 import React from 'react';
-import { ViewMode } from '../../types/car-filter.types';
+import { ViewMode } from '../../../types/car-filter.types';
+import styles from './FilterButtons.module.scss';
 
 interface FilterButtonsProps {
   viewMode: ViewMode;
@@ -16,14 +16,14 @@ export const FilterButtons: React.FC<FilterButtonsProps> = ({
   onClearAll
 }) => {
   return (
-    <div className='buttons-container'>
+    <div className={styles.buttonsContainer}>
       {viewMode !== 'brands' && (
-        <button className="back-button" onClick={onBack}>
+        <button className={styles.backButton} onClick={onBack}>
           Назад
         </button>
       )}
       {hasActiveFilters && (
-        <button className="clear-button" onClick={onClearAll}>
+        <button className={styles.clearButton} onClick={onClearAll}>
           Сбросить
         </button>
       )}

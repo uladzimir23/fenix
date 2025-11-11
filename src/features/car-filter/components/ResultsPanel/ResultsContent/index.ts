@@ -1,0 +1,2 @@
+
+export { ResultsContent } from './ResultsContent';

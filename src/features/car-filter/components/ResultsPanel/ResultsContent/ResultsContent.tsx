@@ -1,5 +1,5 @@
-// src/features/car-filter/components/ResultsPanel/ResultsContent.tsx
 import React, { RefObject } from 'react';
+import styles from './ResultsContent.module.scss';
 
 interface ResultsContentProps {
   hasScroll: boolean;
@@ -14,13 +14,15 @@ export const ResultsContent: React.FC<ResultsContentProps> = ({
   resultsContentRef,
   children
 }) => {
-  const resultsContentClass = `results-content ${hasScroll ? 'has-scroll' : 'no-scroll'} ${isScrolling ? 'scrolling' : ''}`;
+  const resultsContentClass = `${styles.resultsContent} ${
+    hasScroll ? styles.hasScroll : styles.noScroll
+  } ${isScrolling ? styles.scrolling : ''}`;
 
   return (
     <div className={resultsContentClass} ref={resultsContentRef}>
-      {hasScroll && <div className="fade-overlay top-fade"></div>}
+      {hasScroll && <div className={`${styles.fadeOverlay} ${styles.topFade}`}></div>}
       {children}
-      {hasScroll && <div className="fade-overlay bottom-fade"></div>}
+      {hasScroll && <div className={`${styles.fadeOverlay} ${styles.bottomFade}`}></div>}
     </div>
   );
 };

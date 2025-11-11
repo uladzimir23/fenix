@@ -1,7 +1,7 @@
-// src/features/car-filter/components/ContentGrid/GenerationGrid.tsx
 import React from 'react';
 import { CarBrand, CarModel, Generation } from '@/shared/lib/data';
-import { AnimatedCard } from '../AnimatedCard/AnimatedCard';
+import { AnimatedCard } from '../../AnimatedCard/AnimatedCard';
+import styles from './GenerationGrid.module.scss';
 
 interface GenerationGridProps {
   generations: Generation[];
@@ -19,7 +19,7 @@ export const GenerationGrid: React.FC<GenerationGridProps> = ({
   selectedModel
 }) => {
   return (
-    <div className="content-grid">
+    <div className={styles.contentGrid}>
       {generations.map((generation, index) => {
         const count = getFirmwareCountByGeneration(
           selectedBrand!.name, 
@@ -30,10 +30,10 @@ export const GenerationGrid: React.FC<GenerationGridProps> = ({
           <AnimatedCard
             key={index}
             delay={index * 50}
-            className="detailed"
             onClick={() => onGenerationSelect(generation)}
+            className={`detailed ${styles.generationCard}`}
           >
-            <div className="firmware-count-badge">
+            <div className={styles.firmwareCountBadge}>
               {count}
             </div>
             <h3>{generation.body}</h3>

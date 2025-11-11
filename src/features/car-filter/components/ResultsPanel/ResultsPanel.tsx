@@ -1,8 +1,8 @@
-// src/features/car-filter/components/ResultsPanel/ResultsPanel.tsx
 import React, { RefObject } from 'react';
-import { CarFilterState } from 'src/features/car-filter/types/car-filter.types.ts';
-import { ResultsHeader } from './ResultsHeader';
-import { ResultsContent } from './ResultsContent';
+import { CarFilterState } from '../../types/car-filter.types';
+import { ResultsHeader } from './ResultsHeader/ResultsHeader';
+import { ResultsContent } from './ResultsContent/ResultsContent';
+import styles from './ResultsPanel.module.scss';
 
 interface ResultsPanelProps {
   state: CarFilterState;
@@ -22,7 +22,7 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({
   renderRightContent
 }) => {
   return (
-    <div className="results-panel">
+    <div className={styles.resultsPanel}>
       <ResultsHeader state={state} onClearAll={onClearAll} />
       <ResultsContent
         hasScroll={hasScroll}

@@ -1,0 +1,24 @@
+@import '../ContentGrid.module.scss';
+
+.engineCard {
+  min-height: auto;
+  padding: 15px;
+  text-align: left;
+
+  h3 {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+    color: var(--text-primary);
+  }
+
+  p {
+    margin: 5px 0 0 0;
+    color: var(--text-secondary);
+  }
+}
+
+.engineCard:hover {
+  h3 {
+    color: var(--primary-color);
+  }
+}

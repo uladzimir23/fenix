@@ -1,8 +1,8 @@
-// src/features/car-filter/components/ContentGrid/TuningOptionsGrid.tsx
 import React from 'react';
 import { TuningOption } from '@/shared/api';
-import { AnimatedCard } from '../AnimatedCard/AnimatedCard';
-import { TuningOptionWithCount } from '../../types/car-filter.types';
+import { AnimatedCard } from '../../AnimatedCard/AnimatedCard';
+import { TuningOptionWithCount } from '../../../types/car-filter.types';
+import styles from './TuningOptionsGrid.module.scss';
 
 interface TuningOptionsGridProps {
   availableOptions: TuningOptionWithCount[];
@@ -20,11 +20,11 @@ export const TuningOptionsGrid: React.FC<TuningOptionsGridProps> = ({
   selectedEngine
 }) => {
   return (
-    <div className="tuning-options-container">
+    <div className={styles.tuningOptionsContainer}>
       {availableOptions.length > 0 && (
-        <div className="tuning-section">
-          <h3 className="tuning-section-title">Доступные опции</h3>
-          <div className="content-grid tuning-grid">
+        <div className={styles.tuningSection}>
+          <h3 className={styles.tuningSectionTitle}>Доступные опции</h3>
+          <div className={`${styles.contentGrid} ${styles.tuningGrid}`}>
             {availableOptions.map((option, index) => {
               const correspondingFirmware = mockFirmwareFiles.find(firmware => 
                 firmware.engine === selectedEngine && 
@@ -35,19 +35,19 @@ export const TuningOptionsGrid: React.FC<TuningOptionsGridProps> = ({
                 <AnimatedCard
                   key={option.id}
                   delay={index * 30}
-                  className="detailed tuning-option"
+                  className={`detailed ${styles.tuningOption}`}
                   onClick={() => onTuningOptionSelect(option)}
                 >
-                  <div className="firmware-count-badge">
+                  <div className={styles.firmwareCountBadge}>
                     {option.count}
                   </div>
                   <h3>{option.name}</h3>
-                  <p className="category">{option.category}</p>
+                  <p className={styles.category}>{option.category}</p>
                   {correspondingFirmware?.price && (
-                    <p className="price">От {correspondingFirmware.price} ₽</p>
+                    <p className={styles.price}>От {correspondingFirmware.price} ₽</p>
                   )}
-                  <p className="count-info">{option.count} прошивок доступно</p>
-                  <div className="description">
+                  <p className={styles.countInfo}>{option.count} прошивок доступно</p>
+                  <div className={styles.description}>
                     {option.description?.split('\n').map((line: string, i: number) => (
                       <p key={i}>{line}</p>
                     ))}
@@ -60,22 +60,22 @@ export const TuningOptionsGrid: React.FC<TuningOptionsGridProps> = ({
       )}
 
       {unavailableOptions.length > 0 && (
-        <div className="tuning-section">
-          <h3 className="tuning-section-title">Нет в наличии</h3>
-          <div className="content-grid tuning-grid">
+        <div className={styles.tuningSection}>
+          <h3 className={styles.tuningSectionTitle}>Нет в наличии</h3>
+          <div className={`${styles.contentGrid} ${styles.tuningGrid}`}>
             {unavailableOptions.map((option, index) => (
               <AnimatedCard
                 key={option.id}
                 delay={index * 40}
-                className="detailed tuning-option unavailable"
+                className={`detailed ${styles.tuningOption} ${styles.unavailable}`}
               >
-                <div className="firmware-count-badge unavailable-badge">
+                <div className={`${styles.firmwareCountBadge} ${styles.unavailableBadge}`}>
                   0
                 </div>
                 <h3>{option.name}</h3>
-                <p className="category">{option.category}</p>
-                <p className="unavailable-text">Нет в наличии</p>
-                <div className="description">
+                <p className={styles.category}>{option.category}</p>
+                <p className={styles.unavailableText}>Нет в наличии</p>
+                <div className={styles.description}>
                   {option.description?.split('\n').map((line: string, i: number) => (
                     <p key={i}>{line}</p>
                   ))}
