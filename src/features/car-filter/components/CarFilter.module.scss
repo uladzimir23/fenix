@@ -1,0 +1,34 @@
+// src/features/car-filter/components/CarFilter.module.scss
+.carFilterWrapper {
+    position: relative;
+    transition: all 0.3s ease;
+    
+    // Когда сайдбар сжат, можно добавить дополнительные стили если нужно
+    //&.sideNavCollapsed {
+      // Можно добавить специфичные стили для сжатого состояния
+    //}
+  }
+  
+  .carFilterContainer {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    transition: all 0.3s ease;
+  
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  // Адаптация для мобильных устройств
+  @media (max-width: 768px) {
+    .carFilterContainer {
+      padding: 10px;
+      gap: 15px;
+    }
+  }

@@ -1,16 +1,33 @@
 // src/widgets/Layout/Layout.module.scss
 .layout {
-    display: flex;
-    min-height: 100vh;
-    background-color: var(--bg-primary);
+  width: 100vw;
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.mainContent {
+  flex: 1;
+  //padding: 20px;
+  transition: all 0.3s ease;
+  
+  // По умолчанию - сжатый сайдбар
+  &.collapsed {
+    margin-left: 60px; // 74px + 20px + 20px
   }
   
-  .mainContent {
-    flex: 1;
-    margin-left: 285px;
-    transition: margin-left 0.3s ease;
+  // При расширенном сайдбаре
+  &.expanded {
+    margin-left: 258px; // 272px + 20px + 20px
+  }
+  
+  @media (max-width: 767px) {
+    margin-left: 0;
+    //padding: 15px;
     
-    @media (max-width: 767px) {
+    &.collapsed,
+    &.expanded {
       margin-left: 0;
     }
   }
+}

@@ -11,11 +11,14 @@ import { Messages } from '@/pages/Messages/Messages';
 import { Login } from '@/pages/Login/Login';
 import { ApiTester } from '@/widgets/ApiTester/ApiTester';
 import '@/app/styles/globals.scss';
+import { SideNavProvider } from './app/providers/SideNavProvider/SideNavProvider';
+
 
 const App: React.FC = () => {
   return (
     <Router>
       <AuthProvider>
+      <SideNavProvider>
         <Layout>
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -28,6 +31,7 @@ const App: React.FC = () => {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
+        </SideNavProvider>
       </AuthProvider>
     </Router>
   );

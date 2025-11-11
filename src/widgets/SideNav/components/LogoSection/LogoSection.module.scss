@@ -1,0 +1,33 @@
+// src/widgets/SideNav/components/LogoSection/LogoSection.module.scss
+.logoSection {
+    display: flex;
+    align-items: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    //min-height: 60px; // Фиксированная высота для стабильности
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  .logoIcon {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-right: 12px;
+  }
+  
+  .logoText {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: opacity 0.3s ease;
+  }

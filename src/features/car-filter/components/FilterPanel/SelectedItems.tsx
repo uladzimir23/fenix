@@ -46,6 +46,7 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
             <span>{selectedBrand.name}</span>
             <Icon
               icon={FaTimes}
+              size = 'xl'
               className="remove-icon"
               onClick={onBrandRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('brand')}
@@ -61,6 +62,7 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
             <span>{selectedModel.name}</span>
             <Icon
               icon={FaTimes}
+              size = 'xl'
               className="remove-icon"
               onClick={onModelRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('model')}
@@ -76,6 +78,7 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
             <span>{selectedGeneration.body} ({selectedGeneration.years})</span>
             <Icon
               icon={FaTimes}
+              size = 'xl'
               className="remove-icon"
               onClick={onGenerationRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('generation')}
@@ -91,6 +94,7 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
             <span>{selectedEngine}</span>
             <Icon
               icon={FaTimes}
+              size = 'xl'
               className="remove-icon"
               onClick={onEngineRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('engine')}
@@ -106,6 +110,7 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
             <span>{selectedTuningOption.name}</span>
             <Icon
               icon={FaTimes}
+              size = 'xl'
               className="remove-icon"
               onClick={onTuningOptionRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('tuningOption')}
@@ -121,6 +126,7 @@ export const SelectedItems: React.FC<SelectedItemsProps> = ({
             <span>{selectedFirmware.name}</span>
             <Icon
               icon={FaTimes}
+              size = 'xl'
               className="remove-icon"
               onClick={onFirmwareRemove}
               onMouseEnter={() => onRemoveIconMouseEnter('firmware')}

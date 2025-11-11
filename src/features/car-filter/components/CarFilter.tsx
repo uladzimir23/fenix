@@ -57,6 +57,7 @@ export const CarFilter: React.FC = () => {
   const resultsContentRef = useRef<HTMLDivElement>(null);
   const { hasScroll, isScrolling } = useScrollAnimation(resultsContentRef);
 
+
   // Анимация появления сетки
   useEffect(() => {
     setIsGridVisible(false);
@@ -226,8 +227,8 @@ export const CarFilter: React.FC = () => {
         <FilterPanel
           state={state}
           removeIconHover={removeIconHover}
-          onViewModeChange={setViewMode} // Теперь типы совместимы
-          onSearchChange={handleSearchChange} // Теперь принимает string
+          onViewModeChange={setViewMode}
+          onSearchChange={handleSearchChange}
           onRemoveIconMouseEnter={handleRemoveIconMouseEnter}
           onRemoveIconMouseLeave={handleRemoveIconMouseLeave}
           onBrandRemove={() => {

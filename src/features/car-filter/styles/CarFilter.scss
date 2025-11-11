@@ -74,6 +74,7 @@
     box-shadow: none;
     opacity: 0.7  !important;
   }
+
   
   /* Контейнер для опций тюнинга */
   .tuning-options-container {
@@ -149,6 +150,7 @@
   
   /* Левая панель фильтров */
   .filter-panel {
+    
     background: var(--bg-primary);
     box-shadow: var(--box-shadow-primary);
     border-radius: 22px;
@@ -214,7 +216,7 @@
     font-size: 18px;
     color: var(--text-primary);
     max-width: 60%;
-    margin-bottom: 10px;
+    margin: 10px 0;
   }
   
   .results-content {
@@ -233,7 +235,7 @@
   }
   
   .filter-panel h2 {
-    margin-bottom: 10px;
+    margin: 10px 0;
     color: var(--text-primary);
     font-size: 18px;
   }
@@ -281,6 +283,7 @@
     width: 100%;
     box-sizing: border-box;
     outline-offset: -2px;
+    margin-bottom: 10px;
   }
   
   .search-input input {
@@ -420,11 +423,17 @@
   }
   
   .clear-button:hover {
+    border-color: transparent;
+    transition: all 0.2s ease;
+
     color: var(--primary-color-red);
     background-color: var(--bg-secondary);
   }
   
   .back-button:hover {
+    border-color: transparent;
+    transition: all 0.2s ease;
+
     color: var(--primary-color);
     background-color: var(--bg-secondary);
   }
@@ -529,7 +538,7 @@
     padding: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -548,7 +557,7 @@
   }
   
   .content-card.detailed {
-    text-align: left;
+    text-align: left !important;
     cursor: pointer;
   }
   
@@ -556,7 +565,7 @@
     transform: translateY(0px);
     border: 1px solid #359dff80;
     box-shadow: inset 0px 0px 3px #359dff80;
-    scale: 0.99;
+    scale: 0.98;
   }
   
   /* Для tuning-options */
@@ -570,7 +579,7 @@
     transform: translateY(0px);
     border: 1px solid #359dff51;
     box-shadow: inset 0px 0px 3px #359dff80;
-    scale: 0.998;
+    scale: 0.99;
   }
   
   .description {
@@ -624,7 +633,7 @@
   
   .tuning-option:hover {
     transform: translateY(0px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.151);
+    //box-shadow: 0 6px 20px rgba(0, 0, 0, 0.151);
     border-color: var(--primary-color);
   }
   

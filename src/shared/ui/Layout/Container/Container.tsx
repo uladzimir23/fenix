@@ -11,7 +11,7 @@ export interface ContainerProps {
 export const Container: React.FC<ContainerProps> = ({
   children,
   className = '',
-  size = 'md'
+  size = 'full'
 }) => {
   return (
     <div className={`${styles.container} ${styles[size]} ${className}`}>

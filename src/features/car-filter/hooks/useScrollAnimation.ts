@@ -27,7 +27,7 @@ export const useScrollAnimation = (contentRef: RefObject<HTMLDivElement>) => {
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current);
       }
-      scrollTimeout.current = setTimeout(() => setIsScrolling(false), 1500);
+      scrollTimeout.current = setTimeout(() => setIsScrolling(false), 500);
     };
 
     const contentElement = contentRef.current;

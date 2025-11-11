@@ -1,39 +1,40 @@
 // src/widgets/SideNav/SideNav.tsx
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { LogoSection } from './components/LogoSection/LogoSection';
+import { NavSection } from './components/NavSection/NavSection';
+import { UserProfile } from './components/UserProfile/UserProfile';
+import { useSideNav } from '@/app/providers/SideNavProvider/SideNavProvider';
+import { ThemeToggle } from '@/shared/components/ThemeToggle/ThemeToggle';
 import styles from './SideNav.module.scss';
 
 export const SideNav: React.FC = () => {
-  const location = useLocation();
+  const { isExpanded, setIsExpanded } = useSideNav();
 
-  const navItems = [
-    { path: '/', label: 'Главная', icon: '🏠' },
-    { path: '/catalog', label: 'Каталог', icon: '📁' },
-    { path: '/files', label: 'Файлы', icon: '📄' },
-    { path: '/messages', label: 'Сообщения', icon: '💬' },
-    { path: '/profile', label: 'Профиль', icon: '👤' },
-  ];
+  const handleMouseEnter = () => {
+    setIsExpanded(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsExpanded(false);
+  };
 
   return (
-    <nav className={styles.sideNav}>
-      <div className={styles.logo}>
-        <h2>Fenix</h2>
+    <div 
+      className={`${styles.sideNav} ${isExpanded ? styles.expanded : styles.collapsed}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className={styles.navContent}>
+        <LogoSection isExpanded={isExpanded} />
+        
+        <NavSection isExpanded={isExpanded} />
+
+        <ThemeToggle />
+
+        <div className={styles.divider} />
+
+        <UserProfile isExpanded={isExpanded} />
       </div>
-      <ul className={styles.navList}>
-        {navItems.map((item) => (
-          <li key={item.path} className={styles.navItem}>
-            <Link
-              to={item.path}
-              className={`${styles.navLink} ${
-                location.pathname === item.path ? styles.active : ''
-              }`}
-            >
-              <span className={styles.icon}>{item.icon}</span>
-              <span className={styles.label}>{item.label}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    </div>
   );
 };

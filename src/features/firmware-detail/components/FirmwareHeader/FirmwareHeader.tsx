@@ -54,7 +54,10 @@ export const FirmwareHeader: React.FC<FirmwareHeaderProps> = ({
       </div>
       
       <button className={styles.closeButton} onClick={onClose}>
-        <Icon icon={FaTimes} />
+        <Icon 
+          icon={FaTimes}
+          size='lg'
+        />
       </button>
     </div>
   );

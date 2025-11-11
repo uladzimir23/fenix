@@ -14,7 +14,7 @@ export interface IconProps {
 
 export const Icon: React.FC<IconProps> = ({
   icon: IconComponent,
-  size = 'md',
+  size = '',
   className = '',
   onClick,
   onMouseEnter,
