@@ -1,7 +1,7 @@
 // src/widgets/SideNav/components/NavSection/NavSection.module.scss
 .navSection {
     flex: 1;
-    padding: 16px;
+    padding: 14px;
   }
   
   .sectionLabel {
@@ -15,8 +15,8 @@
   .navItem {
     display: flex;
     align-items: left;
-    padding: 10px;
-    border-radius: 12px;
+    padding: 12px;
+    border-radius: 10px;
     margin-bottom: 5px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -37,7 +37,7 @@
   
     &.collapsed {
       justify-content: left;
-      padding: 10px;
+      padding: 12px;
   
       &:hover {
         transform: scale(0.95);

@@ -1,6 +1,6 @@
 .userFileCard {
     background: var(--bg-primary);
-    border-radius: 22px;
+    border-radius: 14px;
     padding: 20px;
     box-shadow: var(--box-shadow-primary);
     border: 1px solid transparent;
@@ -15,7 +15,7 @@
     &:hover {
       scale: 0.998;
       background: var(--bg-thirdly);
-      border-radius: 26px;
+      border-radius: 18px;
       border: 1px solid #359dff80;
       box-shadow: var(--box-shadow-hover);
   
@@ -223,8 +223,8 @@
     padding: 20px;
     //background-color: var(--bg-overlapped);
 
-    border-radius: 0 0 25px 25px;
-    backdrop-filter: blur(3px);
+    border-radius: 0 0 18px 18px;
+    backdrop-filter: blur(2px);
     position: absolute;
     bottom: 0px;
     right: 0px;

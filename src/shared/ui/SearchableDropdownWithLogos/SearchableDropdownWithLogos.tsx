@@ -202,15 +202,6 @@ export const SearchableDropdownWithLogos: React.FC<SearchableDropdownWithLogosPr
           </div>
         </div>
 
-        {/* Информация о результатах */}
-        {searchQuery && (
-          <div className={styles.resultsInfo}>
-            <span className={styles.resultsCount}>
-              Найдено: {filteredOptions.length}
-              {filteredOptions.length !== options.length && ` из ${options.length}`}
-            </span>
-          </div>
-        )}
 
         {/* Информация о результатах */}
         <div className={styles.resultsInfo}>
