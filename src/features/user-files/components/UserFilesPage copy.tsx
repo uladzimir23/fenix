@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { UserFile, FileFilters } from '@/shared/api/types/user-file';
 import { mockUserFiles, getUniqueCategories } from '@/shared/lib/data/user-files';
-import { carBrands, CarBrand } from '@/shared/lib/data/car-data'; // Импортируем базу данных марок
+import { carBrands } from '@/shared/lib/data/car-data'; // Импортируем базу данных марок
 import { UserFileFilters } from './UserFileFilters/UserFileFilters';
 import { UserFileUploadForm } from './UserFileUploadForm/UserFileUploadForm';
 import { PaginatedFilesGrid } from './PaginatedFilesGrid/PaginatedFilesGrid';
@@ -30,9 +30,9 @@ export const UserFilesPage: React.FC = () => {
     sortBy: 'newest'
   });
 
-  // Получаем все марки из базы данных с логотипами
-  const allBrands: CarBrand[] = useMemo(() => {
-    return carBrands;
+  // Получаем все марки из базы данных
+  const allBrands = useMemo(() => {
+    return carBrands.map(brand => brand.name);
   }, []);
 
   const applyFilters = useCallback((files: UserFile[], filters: FileFilters): UserFile[] => {
@@ -124,7 +124,7 @@ export const UserFilesPage: React.FC = () => {
         <UserFileFilters
           filters={filters}
           onFiltersChange={setFilters}
-          brands={allBrands} // Передаем все марки с логотипами
+          brands={allBrands} // Передаем все марки из базы данных
           categories={getUniqueCategories()}
         />
 

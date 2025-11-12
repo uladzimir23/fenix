@@ -23,6 +23,12 @@
       scale: 0.998;
       border-radius: 14px;
 
+      span {
+        flex: 1;
+        color: var(--text-secondary);
+        font-size: 14px;
+        cursor: default;
+      }
     }
   }
   
@@ -74,8 +80,16 @@
   .removeIcon {
     color: var(--text-primary);
     font-size: 14px;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    opacity: 40%;
+
   }
+
+  .dropdown:hover .removeIcon {
+    opacity: 100%;
+  }
+  
+  
   
   .selectedValue {
     font-size: 14px;

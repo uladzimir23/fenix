@@ -1,17 +1,15 @@
 // src/features/user-files/components/UserFileFilters/UserFileFilters.tsx
 import React from 'react';
 import { FileFilters } from '@/shared/api/types/user-file';
-import { CarBrand } from '@/shared/lib/data/car-data';
 import { Dropdown } from '@/shared/ui/Dropdown/Dropdown';
 import { SearchableDropdown } from '@/shared/ui/SearchableDropdown/SearchableDropdown';
-import { SearchableDropdownWithLogos } from '@/shared/ui/SearchableDropdownWithLogos/SearchableDropdownWithLogos';
 import { SearchInput } from '@/features/car-filter/components/FilterPanel/SearchInput/SearchInput';
 import styles from './UserFileFilters.module.scss';
 
 interface UserFileFiltersProps {
   filters: FileFilters;
   onFiltersChange: (filters: FileFilters) => void;
-  brands: CarBrand[]; // Теперь принимаем массив CarBrand с логотипами
+  brands: string[];
   categories: string[];
 }
 
@@ -42,16 +40,15 @@ export const UserFileFilters: React.FC<UserFileFiltersProps> = ({
     { value: 'rating', label: 'По рейтингу' }
   ];
 
-  // Опции для брендов с логотипами
+  // Опции для брендов с использованием базы данных
   const brandOptions = [
     { value: 'all', label: 'Все марки' },
     ...brands
-      .filter(brand => brand && brand.name !== 'all')
-      .sort((a, b) => a.name.localeCompare(b.name))
+      .filter(brand => brand && brand !== 'all')
+      .sort((a, b) => a.localeCompare(b)) // Сортируем по алфавиту
       .map(brand => ({
-        value: brand.name,
-        label: brand.name,
-        logo: brand.logo
+        value: brand,
+        label: brand
       }))
   ];
 
@@ -103,7 +100,7 @@ export const UserFileFilters: React.FC<UserFileFiltersProps> = ({
 
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Марка</label>
-            <SearchableDropdownWithLogos
+            <SearchableDropdown
               options={brandOptions}
               value={filters.brand}
               onChange={(value) => handleFilterChange('brand', value)}

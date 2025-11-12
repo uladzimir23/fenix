@@ -84,7 +84,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           <span className={styles.selectedValue}>
             {selectedOption?.label || placeholder}
           </span>
-          {hasValue && isHovered && (
+          {hasValue &&  (
             <div 
               className={styles.removeIconContainer}
               onMouseEnter={() => setIsRemoveHovered(true)}

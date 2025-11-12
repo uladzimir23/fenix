@@ -1,16 +1,17 @@
-// src/shared/ui/SearchableDropdown/SearchableDropdown.tsx
+// src/shared/ui/SearchableDropdownWithLogos/SearchableDropdownWithLogos.tsx
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { FaChevronDown, FaCheck, FaTimes, FaSearch } from 'react-icons/fa';
 import Icon from '@/shared/ui/Icon/Icon';
-import styles from './SearchableDropdown.module.scss';
+import styles from './SearchableDropdownWithLogos.module.scss';
 
-export interface DropdownOption {
+export interface DropdownOptionWithLogo {
   value: string;
   label: string;
+  logo?: string;
 }
 
-export interface SearchableDropdownProps {
-  options: DropdownOption[];
+export interface SearchableDropdownWithLogosProps {
+  options: DropdownOptionWithLogo[];
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
@@ -20,7 +21,7 @@ export interface SearchableDropdownProps {
   disabled?: boolean;
 }
 
-export const SearchableDropdown: React.FC<SearchableDropdownProps> = ({
+export const SearchableDropdownWithLogos: React.FC<SearchableDropdownWithLogosProps> = ({
   options,
   value,
   onChange,
@@ -56,14 +57,15 @@ export const SearchableDropdown: React.FC<SearchableDropdownProps> = ({
     setIsRemoveHovered(false);
   }, [value]);
 
-  // Фокус на поле поиска при открытии
-  useEffect(() => {
-    if (isOpen && searchInputRef.current) {
-      setTimeout(() => {
-        searchInputRef.current?.focus();
-      }, 100);
-    }
-  }, [isOpen]);
+    // Фокус на поле поиска при открытии
+    useEffect(() => {
+      if (isOpen && searchInputRef.current) {
+        setTimeout(() => {
+          searchInputRef.current?.focus();
+        }, 100);
+      }
+    }, [isOpen]);
+  
 
   const filteredOptions = useMemo(() => {
     if (!searchQuery.trim()) return options;
@@ -114,7 +116,6 @@ export const SearchableDropdown: React.FC<SearchableDropdownProps> = ({
 
   const handleClearSearch = () => {
     setSearchQuery('');
-    searchInputRef.current?.focus();
   };
 
   const scrollToSelected = useCallback(() => {
@@ -202,12 +203,23 @@ export const SearchableDropdown: React.FC<SearchableDropdownProps> = ({
         </div>
 
         {/* Информация о результатах */}
+        {searchQuery && (
+          <div className={styles.resultsInfo}>
+            <span className={styles.resultsCount}>
+              Найдено: {filteredOptions.length}
+              {filteredOptions.length !== options.length && ` из ${options.length}`}
+            </span>
+          </div>
+        )}
+
+        {/* Информация о результатах */}
         <div className={styles.resultsInfo}>
           <span className={styles.resultsCount}>
             Найдено: {filteredOptions.length}
             {filteredOptions.length !== options.length && ` из ${options.length}`}
           </span>
         </div>
+
 
         {/* Список опций с поддержкой скролла */}
         <div 
@@ -229,7 +241,16 @@ export const SearchableDropdown: React.FC<SearchableDropdownProps> = ({
                 }`}
                 onClick={() => handleOptionClick(option.value)}
               >
-                <span className={styles.optionLabel}>{option.label}</span>
+                <div className={styles.optionContent}>
+                  {option.logo && (
+                    <img 
+                      src={option.logo} 
+                      alt={option.label}
+                      className={styles.optionLogo}
+                    />
+                  )}
+                  <span className={styles.optionLabel}>{option.label}</span>
+                </div>
                 {option.value === value && (
                   <Icon icon={FaCheck} className={styles.checkIcon} />
                 )}

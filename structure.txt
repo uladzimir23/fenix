@@ -3,19 +3,21 @@
 │   └── workflows
 │       └── deploy.yml
 ├── .vite
-│   └── deps
-│       ├── _metadata.json
-│       ├── chunk-E4RJ5AND.js
-│       ├── chunk-E4RJ5AND.js.map
-│       ├── chunk-Q34MU4L5.js
-│       ├── chunk-Q34MU4L5.js.map
-│       ├── package.json
-│       ├── react-dom_client.js
-│       ├── react-dom_client.js.map
-│       ├── react-router-dom.js
-│       ├── react-router-dom.js.map
-│       ├── react.js
-│       └── react.js.map
+│   ├── deps
+│   │   ├── _metadata.json
+│   │   ├── chunk-E4RJ5AND.js
+│   │   ├── chunk-E4RJ5AND.js.map
+│   │   ├── chunk-Q34MU4L5.js
+│   │   ├── chunk-Q34MU4L5.js.map
+│   │   ├── package.json
+│   │   ├── react-dom_client.js
+│   │   ├── react-dom_client.js.map
+│   │   ├── react-router-dom.js
+│   │   ├── react-router-dom.js.map
+│   │   ├── react.js
+│   │   └── react.js.map
+│   └── deps_temp_dd32545d
+│       └── package.json
 ├── public
 │   └── vite.svg
 ├── src
@@ -141,6 +143,9 @@
 │   │       │   ├── FileStatusBadge
 │   │       │   │   ├── FileStatusBadge.module.scss
 │   │       │   │   └── FileStatusBadge.tsx
+│   │       │   ├── PaginatedFilesGrid
+│   │       │   │   ├── PaginatedFilesGrid.module.scss
+│   │       │   │   └── PaginatedFilesGrid.tsx
 │   │       │   ├── UserFileCard
 │   │       │   │   ├── UserFileCard.module.scss
 │   │       │   │   └── UserFileCard.tsx
@@ -206,6 +211,7 @@
 │   │   │       ├── ThemeToggle.module.scss
 │   │   │       └── ThemeToggle.tsx
 │   │   ├── hooks
+│   │   │   ├── useDebounce.ts
 │   │   │   ├── useSideNavWidth.ts
 │   │   │   └── useTheme.ts
 │   │   ├── lib
@@ -229,6 +235,9 @@
 │   │       ├── Button
 │   │       │   ├── Button.module.scss
 │   │       │   └── Button.tsx
+│   │       ├── Dropdown
+│   │       │   ├── Dropdown.module.scss
+│   │       │   └── Dropdown.tsx
 │   │       ├── Icon
 │   │       │   ├── Icon.module.scss
 │   │       │   └── Icon.tsx
@@ -236,6 +245,10 @@
 │   │       │   └── Container
 │   │       │       ├── Container.module.scss
 │   │       │       └── Container.tsx
+│   │       ├── SearchableDropdown
+│   │       │   ├── SearchableDropdown.module.scss
+│   │       │   ├── SearchableDropdown.tsx
+│   │       │   └── index.ts
 │   │       └── Typography
 │   │           ├── Typography.module.scss
 │   │           └── Typography.tsx
@@ -265,20 +278,6 @@
 │   ├── index.css
 │   ├── main.tsx
 │   └── vite-env.d.ts
-├── temp-deploy
-│   ├── assets
-│   │   ├── index-92cda770.css
-│   │   ├── index-997b4b65.css
-│   │   ├── index-b1031a3f.js
-│   │   ├── index-b1031a3f.js.map
-│   │   ├── index-f4d3f357.js
-│   │   ├── index-f4d3f357.js.map
-│   │   ├── router-48998a99.js
-│   │   ├── router-48998a99.js.map
-│   │   ├── vendor-b69f2a9f.js
-│   │   └── vendor-b69f2a9f.js.map
-│   ├── index.html
-│   └── vite.svg
 ├── .eslintrc.cjs
 ├── .gitignore
 ├── Notes.md
@@ -294,4 +293,4 @@
 ├── tsconfig.node.json
 └── vite.config.ts
 
-95 directories, 200 files
+97 directories, 197 files

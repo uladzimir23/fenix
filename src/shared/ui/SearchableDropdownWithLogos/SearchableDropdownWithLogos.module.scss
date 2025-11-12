@@ -1,4 +1,4 @@
-// src/shared/ui/SearchableDropdown/SearchableDropdown.module.scss
+// src/shared/ui/SearchableDropdownWithLogos/SearchableDropdownWithLogos.module.scss
 .searchableDropdown {
     position: relative;
     width: 100%;
@@ -9,19 +9,22 @@
     overflow: visible;
     border: 2px solid transparent;
     transform: translateY(-1px);
-
-
+  
+    &:hover {
+      background: var(--bg-fourthly);
+      //border-color: var(--border-color-accent);
+    }
+  
     &.removeHovered {
+      border-color: #ff444431 !important;
+      background: transparent !important;
+      scale: 0.998;
+      border-radius: 14px;
+  
+      &:hover {
         border-color: #ff444431 !important;
         background: transparent !important;
-        scale: 0.998;
-        border-radius: 14px;
-        
-  
       }
-  
-    &.hovered {
-      background: var(--bg-fourthly);
     }
   
     &.disabled {
@@ -31,12 +34,28 @@
       .dropdownHeader {
         cursor: not-allowed;
       }
+  
+      &:hover {
+        background: var(--bg-secondary);
+        border-color: transparent;
+      }
     }
   
     &.open {
       border-radius: 10px;
-      z-index: 1000; // Чтобы меню было поверх других элементов
-
+      z-index: 1000;
+  
+      //&:hover {border-color: var(--border-color-accent);}
+  
+      &.removeHovered {
+        border-color: #ff444431 !important;
+        background: transparent !important;
+  
+        &:hover {
+          border-color: #ff444431 !important;
+          background: transparent !important;
+        }
+      }
     }
   }
   
@@ -49,15 +68,27 @@
     background: transparent;
     color: var(--text-primary);
     transition: all 0.3s ease;
+  
+    .removeHovered & {
+      border-radius: 12px;
+    }
   }
+
   
   .headerContent {
     display: flex;
     align-items: center;
     gap: 8px;
     flex: 1;
-    min-width: 0; // Для правильного обрезания длинного текста
-
+    min-width: 0;
+  }
+  
+  .selectedLogo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 2px;
   }
   
   .removeIconContainer {
@@ -68,6 +99,9 @@
     border-radius: 4px;
     transition: all 0.3s ease;
     margin-right: 7px;
+    flex-shrink: 0;
+    color: var(--text-primary);
+    transition: transform 0.3s ease;
   
     &:hover {
       color: #ff4444 !important;
@@ -75,6 +109,15 @@
       border-radius: 8px;
       scale: 0.94;
   
+      .removeIcon {
+        color: #ff4444 !important;
+      }
+    }
+  
+    .removeHovered & {
+      color: #ff4444 !important;
+      
+      
       .removeIcon {
         color: #ff4444 !important;
       }
@@ -89,15 +132,13 @@
 
   }
   
-  .searchableDropdown:hover .removeIcon {
-    opacity: 100%;
-  }
-  
-  
   .selectedValue {
     font-size: 14px;
     color: var(--text-primary);
     flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .chevron {
@@ -111,11 +152,20 @@
       transform: rotate(180deg);
       opacity: 100%;
     }
+  
+    .removeHovered & {
+      opacity: 60%;
+    }
   }
   
   .searchableDropdown:hover .chevron {
     opacity: 100%;
   }
+
+  .searchableDropdown:hover .removeIcon {
+    opacity: 100%;
+  }
+  
   
   .dropdownMenu {
     margin: 0 2px 2px 2px;
@@ -138,13 +188,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+  
+    .removeHovered & {
+      background: var(--bg-primary);
+    }
   }
   
   .searchContainer {
     padding: 5px;
-    //border-bottom: 1px solid var(--border-color);
     background: var(--bg-primary);
-    //position: sticky;
     top: 0;
     z-index: 2;
   }
@@ -176,30 +228,29 @@
     color: var(--text-primary);
     font-size: 13px;
     transition: all 0.2s ease;
-
+    
     &:hover {
-        border-color: var(--border-color-accent);
-        background: var(--bg-secondary);
-      }
-      
+      border-color: var(--border-color-accent);
+      background: var(--bg-secondary);
+    }
     
     &:focus {
-      outline: none;
-      //border-color: var(--primary-color);
-      background: var(--bg-fourthly);
-    }
-    
-    &::placeholder {
-      color: var(--text-thirdly);
-    }
+        outline: none;
+        //border-color: var(--primary-color);
+        background: var(--bg-fourthly);
+      }
+      
+      &::placeholder {
+        color: var(--text-thirdly);
+      }
 
     .removeHovered & {
-        background: var(--bg-primary);
-        
-        &:hover {
-          background: var(--bg-secondary);
-        }
+      background: var(--bg-primary);
+      
+      &:hover {
+        background: var(--bg-secondary);
       }
+    }
   }
   
   .clearSearchButton {
@@ -217,6 +268,11 @@
       color: var(--text-primary);
       background: var(--bg-thirdly);
     }
+  
+    .removeHovered &:hover {
+      color: #ff4444;
+      background: rgba(255, 68, 68, 0.1);
+    }
   }
   
   .clearSearchIcon {
@@ -226,7 +282,8 @@
   .resultsInfo {
     display: flex;
     justify-content: space-between;
-    padding: 0 15px 6px 15px;
+    align-items: center;
+    padding: 0 15px 6px 15px;    
     font-size: 11px;
     color: var(--text-thirdly);
     border-bottom: 1px solid var(--bg-fourthly);
@@ -237,8 +294,21 @@
     font-weight: 500;
   }
   
-  .resultsLimit {
-    opacity: 0.7;
+  .clearSearchLink {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 11px;
+    text-decoration: underline;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: var(--primary-color-dark);
+      background: rgba(var(--primary-color-rgb), 0.1);
+    }
   }
   
   .menuContent {
@@ -259,6 +329,10 @@
       background: var(--text-thirdly);
       border-radius: 3px;
     }
+  
+    .removeHovered & {
+      background: var(--bg-primary);
+    }
   }
   
   .noResults {
@@ -270,18 +344,9 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-  }
   
-  .clearSearchLink {
-    background: none;
-    border: none;
-    color: var(--primary-color);
-    cursor: pointer;
-    font-size: 12px;
-    text-decoration: underline;
-    
-    &:hover {
-      color: var(--primary-color-dark);
+    .removeHovered & {
+      background: var(--bg-primary);
     }
   }
   
@@ -302,41 +367,50 @@
   
     &:hover {
       background: var(--bg-thirdly);
+      //border-left: 2px solid var(--border-color-accent);
     }
   
     &.selected {
-      color: var(--primary-color);
-      background: var(--bg-thirdly);
-
-      font-weight: 600;
-    }
-
-    .removeHovered & {
-        background: transparent;
-        
-        &:hover {
-          background: var(--bg-thirdly);
-          border-left: 2px solid var(--border-color-accent);
-        }
-        
-        &.selected {
-          background: transparent;
-        }
+        color: var(--primary-color);
+        background: var(--bg-thirdly);
+  
+        font-weight: 600;
       }
-    
+      
     // Анимация появления
     @for $i from 1 through 20 {
       &:nth-child(#{$i}) {
         animation-delay: #{$i * 0.03}s;
       }
     }
+  
+    .removeHovered & {
+      background: transparent;
+      
+      &:hover {
+        background: var(--bg-thirdly);
+        border-left: 2px solid var(--border-color-accent);
+      }
+      
+      &.selected {
+        background: transparent;
+      }
+    }
   }
   
-  @keyframes slideInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .optionContent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+  
+  .optionLogo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 2px;
   }
   
   .optionLabel {
@@ -345,7 +419,7 @@
   
   .checkIcon {
     color: var(--primary-color);
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .moreResults {
@@ -353,9 +427,19 @@
     font-size: 11px;
     color: var(--text-thirdly);
     text-align: center;
-    //border-top: 1px solid var(--border-color);
     background: var(--bg-secondary);
     font-style: italic;
+  
+    .removeHovered & {
+      background: var(--bg-primary);
+    }
+  }
+  
+  @keyframes slideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   // Адаптивность
@@ -379,5 +463,11 @@
     .searchInput {
       padding: 6px 30px 6px 28px;
       font-size: 12px;
+    }
+    
+    .selectedLogo,
+    .optionLogo {
+      width: 18px;
+      height: 18px;
     }
   }
