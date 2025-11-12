@@ -38,6 +38,8 @@ export interface ContentCardProps {
   delay: number;
   className?: string;
   onClick?: () => void;
+  variant?: 'default' | 'detailed' | 'tuningOption' | 'firmwareOption' | 'unavailable';
+
 }
 
 export interface TuningOptionWithCount extends TuningOption {

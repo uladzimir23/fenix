@@ -31,3 +31,6 @@ export type {
 
 // Экспортируем клиент и утилиты
 export { apiClient, tokenStorage } from './client/apiClient';
+
+// Добавить в существующий файл
+export * from './types/user-file';

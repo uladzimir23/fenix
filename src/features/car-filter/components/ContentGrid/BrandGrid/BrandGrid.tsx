@@ -3,6 +3,7 @@ import { CarBrand } from '@/shared/lib/data';
 import { AnimatedCard } from '../../AnimatedCard/AnimatedCard';
 import styles from './BrandGrid.module.scss';
 
+
 interface BrandGridProps {
   brands: CarBrand[];
   onBrandSelect: (brand: CarBrand) => void;

@@ -35,64 +35,125 @@
 │   │   │   ├── components
 │   │   │   │   ├── AnimatedCard
 │   │   │   │   │   ├── AnimatedCard.module.scss
-│   │   │   │   │   └── AnimatedCard.tsx
+│   │   │   │   │   ├── AnimatedCard.tsx
+│   │   │   │   │   └── index.ts
 │   │   │   │   ├── ContentGrid
-│   │   │   │   │   ├── BrandGrid.tsx
+│   │   │   │   │   ├── BrandGrid
+│   │   │   │   │   │   ├── BrandGrid.module.scss
+│   │   │   │   │   │   ├── BrandGrid.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── EngineGrid
+│   │   │   │   │   │   ├── EngineGrid.module.scss
+│   │   │   │   │   │   ├── EngineGrid.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── FirmwareGrid
+│   │   │   │   │   │   ├── FirmwareGrid.module.scss
+│   │   │   │   │   │   ├── FirmwareGrid.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── GenerationGrid
+│   │   │   │   │   │   ├── GenerationGrid.module.scss
+│   │   │   │   │   │   ├── GenerationGrid.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── ModelGrid
+│   │   │   │   │   │   ├── ModelGrid.module.scss
+│   │   │   │   │   │   ├── ModelGrid.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── TuningOptionsGrid
+│   │   │   │   │   │   ├── TuningOptionsGrid.module.scss
+│   │   │   │   │   │   ├── TuningOptionsGrid.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── ContentGrid.module.scss
 │   │   │   │   │   ├── ContentGrid.tsx
-│   │   │   │   │   ├── EngineGrid.tsx
-│   │   │   │   │   ├── FirmwareGrid.tsx
-│   │   │   │   │   ├── GenerationGrid.tsx
-│   │   │   │   │   ├── ModelGrid.tsx
-│   │   │   │   │   └── TuningOptionsGrid.tsx
+│   │   │   │   │   └── index.ts
 │   │   │   │   ├── FilterPanel
-│   │   │   │   │   ├── Breadcrumbs.tsx
-│   │   │   │   │   ├── FilterButtons.tsx
+│   │   │   │   │   ├── Breadcrumbs
+│   │   │   │   │   │   ├── Breadcrumbs.module.scss
+│   │   │   │   │   │   ├── Breadcrumbs.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── FilterButtons
+│   │   │   │   │   │   ├── FilterButtons.module.scss
+│   │   │   │   │   │   ├── FilterButtons.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── SearchInput
+│   │   │   │   │   │   ├── SearchInput.module.scss
+│   │   │   │   │   │   ├── SearchInput.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── SelectedItems
+│   │   │   │   │   │   ├── SelectedItems.module.scss
+│   │   │   │   │   │   ├── SelectedItems.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── FilterPanel.module.scss
 │   │   │   │   │   ├── FilterPanel.tsx
-│   │   │   │   │   ├── SearchInput.tsx
-│   │   │   │   │   └── SelectedItems.tsx
+│   │   │   │   │   └── index.ts
 │   │   │   │   ├── ResultsPanel
-│   │   │   │   │   ├── ResultsContent.tsx
-│   │   │   │   │   ├── ResultsHeader.tsx
-│   │   │   │   │   └── ResultsPanel.tsx
+│   │   │   │   │   ├── ResultsContent
+│   │   │   │   │   │   ├── ResultsContent.module.scss
+│   │   │   │   │   │   ├── ResultsContent.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── ResultsHeader
+│   │   │   │   │   │   ├── ResultsHeader.module.scss
+│   │   │   │   │   │   ├── ResultsHeader.tsx
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   ├── ResultsPanel.module.scss
+│   │   │   │   │   ├── ResultsPanel.tsx
+│   │   │   │   │   └── index.ts
 │   │   │   │   ├── CarFilter.module.scss
 │   │   │   │   └── CarFilter.tsx
 │   │   │   ├── hooks
 │   │   │   │   ├── useCarFilter.ts
 │   │   │   │   ├── useCarFilterData.ts
 │   │   │   │   └── useScrollAnimation.ts
-│   │   │   ├── styles
-│   │   │   │   └── CarFilter.scss
 │   │   │   ├── types
-│   │   │   │   └── car-filter.types.ts
+│   │   │   │   ├── car-filter.types.ts
+│   │   │   │   └── index.ts
 │   │   │   └── index.ts
-│   │   └── firmware-detail
+│   │   ├── firmware-detail
+│   │   │   ├── components
+│   │   │   │   ├── FirmwareHeader
+│   │   │   │   │   ├── FirmwareHeader.module.scss
+│   │   │   │   │   ├── FirmwareHeader.tsx
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── FirmwareModal
+│   │   │   │   │   ├── FirmwareModal.module.scss
+│   │   │   │   │   ├── FirmwareModal.tsx
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── FirmwareRequirements
+│   │   │   │   │   ├── FirmwareRequirements.module.scss
+│   │   │   │   │   ├── FirmwareRequirements.tsx
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── FirmwareSidebar
+│   │   │   │   │   ├── FirmwareSidebar.module.scss
+│   │   │   │   │   ├── FirmwareSidebar.tsx
+│   │   │   │   │   └── index.ts
+│   │   │   │   └── FirmwareSpecs
+│   │   │   │       ├── FirmwareSpecs.module.scss
+│   │   │   │       ├── FirmwareSpecs.tsx
+│   │   │   │       └── index.ts
+│   │   │   ├── hooks
+│   │   │   │   └── useFirmwareDetail.ts
+│   │   │   ├── types
+│   │   │   │   └── firmware-detail.types.ts
+│   │   │   ├── FirmwareDetail.module.scss
+│   │   │   ├── FirmwareDetail.tsx
+│   │   │   └── index.ts
+│   │   └── user-files
 │   │       ├── components
-│   │       │   ├── FirmwareHeader
-│   │       │   │   ├── FirmwareHeader.module.scss
-│   │       │   │   ├── FirmwareHeader.tsx
-│   │       │   │   └── index.ts
-│   │       │   ├── FirmwareModal
-│   │       │   │   ├── FirmwareModal.module.scss
-│   │       │   │   ├── FirmwareModal.tsx
-│   │       │   │   └── index.ts
-│   │       │   ├── FirmwareRequirements
-│   │       │   │   ├── FirmwareRequirements.module.scss
-│   │       │   │   ├── FirmwareRequirements.tsx
-│   │       │   │   └── index.ts
-│   │       │   ├── FirmwareSidebar
-│   │       │   │   ├── FirmwareSidebar.module.scss
-│   │       │   │   ├── FirmwareSidebar.tsx
-│   │       │   │   └── index.ts
-│   │       │   └── FirmwareSpecs
-│   │       │       ├── FirmwareSpecs.module.scss
-│   │       │       ├── FirmwareSpecs.tsx
-│   │       │       └── index.ts
+│   │       │   ├── FileStatusBadge
+│   │       │   │   ├── FileStatusBadge.module.scss
+│   │       │   │   └── FileStatusBadge.tsx
+│   │       │   ├── UserFileCard
+│   │       │   │   ├── UserFileCard.module.scss
+│   │       │   │   └── UserFileCard.tsx
+│   │       │   ├── UserFileFilters
+│   │       │   │   ├── UserFileFilters.module.scss
+│   │       │   │   └── UserFileFilters.tsx
+│   │       │   ├── UserFileUploadForm
+│   │       │   │   ├── UserFileUploadForm.module.scss
+│   │       │   │   └── UserFileUploadForm.tsx
+│   │       │   ├── UserFilesPage.module.scss
+│   │       │   └── UserFilesPage.tsx
 │   │       ├── hooks
-│   │       │   └── useFirmwareDetail.ts
-│   │       ├── types
-│   │       │   └── firmware-detail.types.ts
-│   │       ├── FirmwareDetail.module.scss
-│   │       ├── FirmwareDetail.tsx
+│   │       │   └── useUserFiles.ts
 │   │       └── index.ts
 │   ├── pages
 │   │   ├── Catalog
@@ -137,7 +198,8 @@
 │   │   │   │   ├── firmware.ts
 │   │   │   │   ├── index.ts
 │   │   │   │   ├── requests.ts
-│   │   │   │   └── tuning.ts
+│   │   │   │   ├── tuning.ts
+│   │   │   │   └── user-file.ts
 │   │   │   └── index.ts
 │   │   ├── components
 │   │   │   └── ThemeToggle
@@ -157,6 +219,8 @@
 │   │   │   │   ├── tuning-options
 │   │   │   │   │   ├── index.ts
 │   │   │   │   │   └── types.ts
+│   │   │   │   ├── user-files
+│   │   │   │   │   └── index.ts
 │   │   │   │   └── index.ts
 │   │   │   └── index.ts
 │   │   ├── styles
@@ -203,9 +267,12 @@
 │   └── vite-env.d.ts
 ├── temp-deploy
 │   ├── assets
+│   │   ├── index-92cda770.css
 │   │   ├── index-997b4b65.css
 │   │   ├── index-b1031a3f.js
 │   │   ├── index-b1031a3f.js.map
+│   │   ├── index-f4d3f357.js
+│   │   ├── index-f4d3f357.js.map
 │   │   ├── router-48998a99.js
 │   │   ├── router-48998a99.js.map
 │   │   ├── vendor-b69f2a9f.js
@@ -214,8 +281,8 @@
 │   └── vite.svg
 ├── .eslintrc.cjs
 ├── .gitignore
+├── Notes.md
 ├── README.md
-├── copy-structure.sh
 ├── deploy-gh-pages.sh
 ├── eslint.config.js
 ├── index.html
@@ -227,4 +294,4 @@
 ├── tsconfig.node.json
 └── vite.config.ts
 
-76 directories, 152 files
+95 directories, 200 files

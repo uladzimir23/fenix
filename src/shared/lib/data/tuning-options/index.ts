@@ -4,11 +4,12 @@ export * from './types';
 import { TuningOption, CategoryKey } from './types';
 import { bmwDatabase } from '../car-data';
 
-// Описания категорий прошивок
+// Описания категорий прошивок - добавьте недостающие свойства
 const categoryDescriptions: Record<CategoryKey, string> = {
   Stage1: "Stage1 - При использовании прошивок Stage1, никаких механических доработок двигателя, впуска или выпуска не требуется.",
   Stage2: "Stage2 - прошивка для двигателя с доработанным железом: интеркулер, выхлопная система, воздушный фильтр.",
   Stage3: "Stage3 - максимальный тюнинг с серьезными доработками двигателя, турбины и других компонентов.",
+  Stage4: "Stage4 - экстремальный тюнинг для профессионального использования с максимальными доработками.", // Добавлено
   E85: "E85 - прошивка для работы на биоэтаноле (смесь 85% этанола и 15% бензина).",
   DPFoff: "DPFoff - прошивка с отключенной системой сажевого фильтра.",
   EGRoff: "EGRoff - прошивка с отключенной системой ЕГР.",
@@ -78,4 +79,9 @@ export const getTuningCategories = (): CategoryKey[] => {
 
 export const getTuningCategoryDescription = (category: string): string => {
   return getCategoryDescriptionSafe(category);
+};
+
+// Функция для user-files с отдельным набором категорий
+export const getUserFileCategories = (): string[] => {
+  return ['Stage1', 'Stage2', 'Stage3', 'Stage4', 'DPF Off', 'EGR Off', 'AdBlue Off', 'TCU', 'Custom'];
 };

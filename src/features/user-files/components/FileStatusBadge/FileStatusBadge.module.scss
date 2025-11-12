@@ -1,0 +1,80 @@
+.statusBadgeContainer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .statusBadge {
+    padding: 4px 8px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid transparent;
+  }
+  
+  .pending {
+    background: var(--status-pending-bg);
+    color: var(--status-pending-color);
+    border-color: var(--status-pending-border);
+  }
+  
+  .approved {
+    background: var(--status-approved-bg);
+    color: var(--status-approved-color);
+    border-color: var(--status-approved-border);
+  }
+  
+  .rejected {
+    background: var(--status-rejected-bg);
+    color: var(--status-rejected-color);
+    border-color: var(--status-rejected-border);
+  }
+  
+  .tooltipContainer {
+    position: relative;
+    display: inline-flex;
+  }
+  
+  .tooltipIcon {
+    color: var(--text-thirdly);
+    font-size: 14px;
+    cursor: help;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+  
+  .tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    z-index: 1000;
+    min-width: 200px;
+    max-width: 300px;
+  }
+  
+  .tooltipContent {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-primary);
+    border: 1px solid var(--border-color);
+    font-size: 12px;
+    line-height: 1.4;
+    
+    strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--primary-color-red);
+    }
+    
+    p {
+      margin: 0;
+      color: var(--text-primary);
+    }
+  }

@@ -31,7 +31,7 @@ export const FirmwareGrid: React.FC<FirmwareGridProps> = ({
           <AnimatedCard
             key={firmware.id}
             delay={index * 30}
-            className={`detailed ${styles.firmwareOption}`}
+            className="firmwareOption"
             onClick={() => onFirmwareSelect(firmware)}
           >
             <div className={styles.firmwareWrapper}>
@@ -40,8 +40,9 @@ export const FirmwareGrid: React.FC<FirmwareGridProps> = ({
                   <div className={styles.firmwareHeader}>
                     <h3>{firmware.name}</h3>
                     <span className={styles.firmwareVersion}>{firmware.version}</span>
+                    <p className={styles.category}>{firmware.category}</p>
+
                   </div>
-                  <p className={styles.category}>{firmware.category}</p>
                 </div>
                 {firmware.price && (
                   <p className={styles.price}>Цена: {firmware.price} ₽</p>
@@ -82,7 +83,7 @@ export const FirmwareGrid: React.FC<FirmwareGridProps> = ({
               <AnimatedCard
                 key={firmware.id}
                 delay={index * 40}
-                className={`detailed ${styles.firmwareOption}`}
+                className="firmwareOption"
                 onClick={() => onFirmwareSelect(firmware)}
               >
                 <div className={styles.firmwareWrapper}>
@@ -91,8 +92,8 @@ export const FirmwareGrid: React.FC<FirmwareGridProps> = ({
                       <div className={styles.firmwareHeader}>
                         <h3>{firmware.name}</h3>
                         <span className={styles.firmwareVersion}>{firmware.version}</span>
+                        <p className={styles.category}>{firmware.category}</p>
                       </div>
-                      <p className={styles.category}>{firmware.category}</p>
                     </div>
                     {firmware.price && (
                       <p className={styles.price}>Цена: {firmware.price} ₽</p>

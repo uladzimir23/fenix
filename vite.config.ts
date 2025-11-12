@@ -18,6 +18,12 @@ export default defineConfig({
       '@/processes': path.resolve(__dirname, './src/processes')
     }
   },
+  css: {
+    modules: {
+      // Настройка генерации имен классов для CSS Modules
+      generateScopedName: '[name]__[local]___[hash:base64:5]'
+    }
+  },
   build: {
     outDir: 'dist',
     sourcemap: true,

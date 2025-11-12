@@ -35,7 +35,7 @@ export const TuningOptionsGrid: React.FC<TuningOptionsGridProps> = ({
                 <AnimatedCard
                   key={option.id}
                   delay={index * 30}
-                  className={`detailed ${styles.tuningOption}`}
+                  className="tuningOption"
                   onClick={() => onTuningOptionSelect(option)}
                 >
                   <div className={styles.firmwareCountBadge}>
@@ -67,8 +67,8 @@ export const TuningOptionsGrid: React.FC<TuningOptionsGridProps> = ({
               <AnimatedCard
                 key={option.id}
                 delay={index * 40}
-                className={`detailed ${styles.tuningOption} ${styles.unavailable}`}
-              >
+                className="unavailable"
+                >
                 <div className={`${styles.firmwareCountBadge} ${styles.unavailableBadge}`}>
                   0
                 </div>

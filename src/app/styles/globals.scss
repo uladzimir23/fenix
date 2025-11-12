@@ -31,42 +31,82 @@ body {
 // CSS переменные для светлой темы
 :root {
   --black-white: black;
+
   --bg-primary: white;
   --bg-primary-opacity: rgba(255, 255, 255, 0.8);
   --bg-secondary:#F2FBFE;
   --bg-thirdly: #F2FBFE;
   --bg-fourthly: #e8f8ff;
+  --bg-overlapped: #F2FBFE;
+
+
   --text-primary: #212529;
   --text-secondary: #6c757d;
-  --text-thiirdly: #6c757d;
+  --text-thirdly: #6c757d;
+
   --primary-color: #569cfe;
   --primary-color-red: #ff0000;
+
   --accent-color: #E6F7FD;
   --accent-color-red: #ff000020;
+
   --border-color: #dee2e6;
   --border-color-accent: #89bbf0;
-  --box-shadow-primary: 0px 0px 2px 1px #223c501a;
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-}
 
+  --box-shadow-primary: 0px 0px 2px 1px #223c501a;
+  --box-shadow-hover: inset 0px 0px 3px #359dff80;
+
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  
+  // Цвета статусов для светлой темы
+  --status-pending-bg: #fff3cd;
+  --status-pending-color: #856404;
+  --status-pending-border: #ffeaa7;
+  --status-approved-bg: #d1ecf1;
+  --status-approved-color: #0c5460;
+  --status-approved-border: #b8daff;
+  --status-rejected-bg: #f8d7da;
+  --status-rejected-color: #721c24;
+  --status-rejected-border: #f5c6cb;
+}
 // CSS переменные для темной темы
 body.dark-theme {
   --black-white: white;
+
   --bg-primary: #151517;
   --bg-primary-opacity: rgba(21, 21, 23, 0.8);
   --bg-secondary: #56aafe08;
   --bg-thirdly: #1b1b2378;
   --bg-fourthly: #56aafe12;
+  --bg-overlapped: #18181C;
+
   --text-primary: #ffffff;
   --text-secondary: #adb5bd;
   --text-thirdly: #adb5bd8b;
+
   --primary-color: #56aafe;
   --primary-color-red: #ff0000;
+
   --accent-color: #56aafe15;
   --accent-color-red: #321919;
+
   --border-color: #26292d;
   --border-color-accent: #1E4765;
+
   --box-shadow-primary: 0px 0px 2px 1px #223c5075;
+  --box-shadow-hover: inset 0px 0px 3px #359dff80;
+
+
+  // Цвета статусов для темной темы
+  --status-pending-bg: #332701;
+  --status-pending-color: #fef08a;
+  --status-pending-border: #854d0e;
+  --status-approved-bg: #052e16;
+  --status-approved-color: #4ade80;
+  --status-approved-border: #166534;
+  --status-rejected-bg: #450a0a;
+  --status-rejected-color: #fca5a5;
+  --status-rejected-border: #991b1b;
 }
 
 .page {

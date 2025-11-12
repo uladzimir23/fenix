@@ -31,12 +31,12 @@ export const GenerationGrid: React.FC<GenerationGridProps> = ({
             key={index}
             delay={index * 50}
             onClick={() => onGenerationSelect(generation)}
-            className={`detailed ${styles.generationCard}`}
-          >
+            className="detailed"
+            >
             <div className={styles.firmwareCountBadge}>
               {count}
             </div>
-            <h3>{generation.body}</h3>
+            <h3 className={styles.generation}>{generation.body}</h3>
             <p>{generation.years}</p>
             <p>{count} прошивок</p>
           </AnimatedCard>

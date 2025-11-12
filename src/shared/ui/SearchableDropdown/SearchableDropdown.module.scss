@@ -1,0 +1,348 @@
+// src/shared/ui/SearchableDropdown/SearchableDropdown.module.scss
+.searchableDropdown {
+    position: relative;
+    width: 100%;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: visible;
+    border: 2px solid transparent;
+    transform: translateY(-1px);
+
+
+    &.removeHovered {
+        border-color: #ff444431 !important;
+        background: transparent !important;
+        scale: 0.998;
+        border-radius: 14px;
+  
+      }
+  
+    &.hovered {
+      background: var(--bg-fourthly);
+    }
+  
+    &.disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      
+      .dropdownHeader {
+        cursor: not-allowed;
+      }
+    }
+  
+    &.open {
+      border-radius: 10px;
+      z-index: 1000; // Чтобы меню было поверх других элементов
+
+    }
+  }
+  
+  .dropdownHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+  
+  .headerContent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0; // Для правильного обрезания длинного текста
+
+  }
+  
+  .removeIconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-right: 7px;
+  
+    &:hover {
+      color: #ff4444 !important;
+      background: rgba(255, 68, 68, 0.1);
+      border-radius: 8px;
+      scale: 0.94;
+  
+      .removeIcon {
+        color: #ff4444 !important;
+      }
+    }
+  }
+  
+  .removeIcon {
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+  
+  .selectedValue {
+    font-size: 14px;
+    color: var(--text-primary);
+    flex: 1;
+  }
+  
+  .chevron {
+    color: var(--text-primary);
+    transition: transform 0.3s ease;
+    opacity: 40%;
+    font-size: 14px;
+    flex-shrink: 0;
+    
+    &.rotated {
+      transform: rotate(180deg);
+      opacity: 100%;
+    }
+  }
+  
+  .searchableDropdown:hover .chevron {
+    opacity: 100%;
+  }
+  
+  .dropdownMenu {
+    margin: 0 2px 2px 2px;
+    border-radius: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background: var(--bg-primary);
+    opacity: 0;
+    transform: translateY(-20px);
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    
+    &.open {
+      max-height: 400px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .searchContainer {
+    padding: 5px;
+    //border-bottom: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    //position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  
+  .searchInputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 12px;
+    color: var(--text-thirdly);
+    font-size: 12px;
+    pointer-events: none;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 10px 15px 10px 32px;
+    //padding: 8px 35px 8px 32px;
+    border-radius: 6px;
+    //border: 1.5px solid var(--border-color);
+    border: 1.5px solid transparent;
+
+    //box-shadow: var(--box-shadow-primary);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 13px;
+    transition: all 0.2s ease;
+    
+    &:focus {
+      outline: none;
+      //border-color: var(--primary-color);
+      background: var(--bg-fourthly);
+    }
+    
+    &::placeholder {
+      color: var(--text-thirdly);
+    }
+  }
+  
+  .clearSearchButton {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--text-thirdly);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: var(--text-primary);
+      background: var(--bg-thirdly);
+    }
+  }
+  
+  .clearSearchIcon {
+    font-size: 12px;
+  }
+  
+  .resultsInfo {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px 6px 15px;
+    font-size: 11px;
+    color: var(--text-thirdly);
+    border-bottom: 1px solid var(--bg-fourthly);
+    background: var(--bg-primary);
+  }
+  
+  .resultsCount {
+    font-weight: 500;
+  }
+  
+  .resultsLimit {
+    opacity: 0.7;
+  }
+  
+  .menuContent {
+    max-height: 250px;
+    overflow-y: auto;
+    flex: 1;
+    
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+      border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: var(--text-thirdly);
+      border-radius: 3px;
+    }
+  }
+  
+  .noResults {
+    padding: 20px 15px;
+    text-align: center;
+    color: var(--text-thirdly);
+    font-size: 13px;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .clearSearchLink {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: underline;
+    
+    &:hover {
+      color: var(--primary-color-dark);
+    }
+  }
+  
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    transform-origin: left;
+    animation: slideInUp 0.2s ease forwards;
+    opacity: 0;
+    transform: translateY(5px);
+  
+    &:hover {
+      background: var(--bg-thirdly);
+    }
+  
+    &.selected {
+      color: var(--primary-color);
+      background: var(--bg-thirdly);
+
+      font-weight: 600;
+    }
+    
+    // Анимация появления
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.03}s;
+      }
+    }
+  }
+  
+  @keyframes slideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .optionLabel {
+    flex: 1;
+  }
+  
+  .checkIcon {
+    color: var(--primary-color);
+    font-size: 12px;
+  }
+  
+  .moreResults {
+    padding: 8px 15px;
+    font-size: 11px;
+    color: var(--text-thirdly);
+    text-align: center;
+    //border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    font-style: italic;
+  }
+  
+  // Адаптивность
+  @media (max-width: 768px) {
+    .dropdownHeader {
+      padding: 10px 12px;
+    }
+    
+    .dropdownItem {
+      padding: 8px 12px;
+    }
+    
+    .selectedValue {
+      font-size: 13px;
+    }
+    
+    .searchContainer {
+      padding: 10px 12px 6px 12px;
+    }
+    
+    .searchInput {
+      padding: 6px 30px 6px 28px;
+      font-size: 12px;
+    }
+  }
