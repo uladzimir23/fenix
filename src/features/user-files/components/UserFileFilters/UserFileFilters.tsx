@@ -92,7 +92,7 @@ export const UserFileFilters: React.FC<UserFileFiltersProps> = ({
                 onChange={(value) => handleFilterChange('category', value)}
                 searchPlaceholder="Поиск категории..."
                 maxHeight={350}
-                virtualScroll={categoryOptions.length > 100}
+                //virtualScroll={categoryOptions.length > 100}
             />
             </div>
 
