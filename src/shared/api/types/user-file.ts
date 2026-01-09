@@ -86,7 +86,12 @@ export interface UploadUserFileData {
 export interface FileFilters {
   searchQuery: string;
   status: FileStatus | 'all';
-  category: TuningCategory | 'all';
+  category: string[];
+  //category: TuningCategory | 'all';
   brand: string;
   sortBy: 'newest' | 'oldest' | 'downloads' | 'rating';
+  model?: string;
+  generation?: string;
+  engine?: string;
+  categories?: string[];
 }

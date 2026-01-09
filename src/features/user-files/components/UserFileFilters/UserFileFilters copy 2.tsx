@@ -6,7 +6,6 @@ import { CarBrand } from '@/shared/lib/data/car-data/types';
 import { Dropdown } from '@/shared/ui/Dropdown/Dropdown';
 import { SearchableDropdown } from '@/shared/ui/Dropdown/components/SearchableDropdown';
 import { SearchableDropdownWithLogos } from '@/shared/ui/Dropdown/components/SearchableDropdownWithLogos';
-import { MultiSelectDropdown } from '@/shared/ui/Dropdown/components/MultiSelectDropdown';
 import { CarDependencyChain } from '@/shared/ui/Dropdown/components/CarDependencyChain';
 import { CarSelection } from '@/shared/ui/Dropdown/types/dropdown.types';
 import { SearchInput } from '@/features/car-filter/components/FilterPanel/SearchInput/SearchInput';
@@ -25,10 +24,8 @@ const containerStyles = css`
   border-radius: 14px;
   height: fit-content;
   position: sticky;
-  top: 20px;
   box-sizing: border-box;
-  width: 250px;
-  overflow-y: visible;
+  overflow: hidden;
   max-height: calc(100vh - 40px);
 
   @media (max-width: 968px) {
@@ -63,13 +60,13 @@ const filtersContentStyles = css`
 const filtersSectionStyles = css`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 5px;
 `;
 
 const filterGroupStyles = css`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 `;
 
 const sectionDividerStyles = css`
@@ -90,15 +87,6 @@ export const UserFileFilters: React.FC<UserFileFiltersProps> = ({
     onFiltersChange({
       ...filters,
       [key]: value
-    });
-  };
-
-  // Обработчик для MultiSelect категорий
-  const handleCategoriesChange = (selectedCategories: string[]) => {
-    onFiltersChange({
-      ...filters,
-      // Для обратной совместимости используем первую выбранную категорию
-      category: selectedCategories.length > 0 ? selectedCategories[0] : 'all'
     });
   };
 
@@ -143,19 +131,16 @@ export const UserFileFilters: React.FC<UserFileFiltersProps> = ({
           logo: brand.logo
         }))
     ],
-    // Для MultiSelect убираем опцию "Все категории"
-    categoryOptions: categories
-      .filter((cat: string) => cat && cat !== 'all')
-      .map((cat: string) => ({
-        value: cat,
-        label: cat
-      }))
+    categoryOptions: [
+      { value: 'all', label: 'Все категории' },
+      ...categories
+        .filter((cat: string) => cat && cat !== 'all')
+        .map((cat: string) => ({
+          value: cat,
+          label: cat
+        }))
+    ]
   }), [brands, categories]);
-
-  // Преобразуем выбранную категорию в массив для MultiSelect
-  const selectedCategories = useMemo(() => 
-    filters.category && filters.category !== 'all' ? [filters.category] : []
-  , [filters.category]);
 
   return (
     <div css={containerStyles}>
@@ -182,13 +167,12 @@ export const UserFileFilters: React.FC<UserFileFiltersProps> = ({
             />
           </div>
 
-          {/* MultiSelect для категорий */}
           <div css={filterGroupStyles}>
-            <MultiSelectDropdown
-              selectedValues={selectedCategories}
-              onChange={handleCategoriesChange}
+            <SearchableDropdown
               options={categoryOptions}
-              placeholder="Выберите категории..."
+              value={filters.category}
+              onChange={(value) => handleFilterChange('category', value)}
+              searchPlaceholder="Поиск категории..."
               maxHeight={350}
             />
           </div>

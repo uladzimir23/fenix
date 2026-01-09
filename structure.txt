@@ -150,11 +150,15 @@
 │   │       │   │   ├── UserFileCard.module.scss
 │   │       │   │   └── UserFileCard.tsx
 │   │       │   ├── UserFileFilters
+│   │       │   │   ├── UserFileFilters copy 2.tsx
+│   │       │   │   ├── UserFileFilters copy 3.tsx
+│   │       │   │   ├── UserFileFilters copy.tsx
 │   │       │   │   ├── UserFileFilters.module.scss
 │   │       │   │   └── UserFileFilters.tsx
 │   │       │   ├── UserFileUploadForm
 │   │       │   │   ├── UserFileUploadForm.module.scss
 │   │       │   │   └── UserFileUploadForm.tsx
+│   │       │   ├── UserFilesPage copy.tsx
 │   │       │   ├── UserFilesPage.module.scss
 │   │       │   └── UserFilesPage.tsx
 │   │       ├── hooks
@@ -236,22 +240,45 @@
 │   │       │   ├── Button.module.scss
 │   │       │   └── Button.tsx
 │   │       ├── Dropdown
+│   │       │   ├── components
+│   │       │   │   ├── BaseDropdown.tsx
+│   │       │   │   └── index.ts
+│   │       │   ├── hooks
+│   │       │   │   ├── index.ts
+│   │       │   │   └── useDropdown.ts
+│   │       │   ├── styles
+│   │       │   │   ├── DropdownStyles.tsx
+│   │       │   │   └── index.ts
+│   │       │   ├── types
+│   │       │   │   ├── dropdown.types.ts
+│   │       │   │   └── index.ts
 │   │       │   ├── Dropdown.module.scss
-│   │       │   └── Dropdown.tsx
+│   │       │   ├── Dropdown.tsx
+│   │       │   └── index.ts
 │   │       ├── Icon
 │   │       │   ├── Icon.module.scss
-│   │       │   └── Icon.tsx
+│   │       │   ├── Icon.tsx
+│   │       │   └── index.ts
 │   │       ├── Layout
 │   │       │   └── Container
 │   │       │       ├── Container.module.scss
 │   │       │       └── Container.tsx
 │   │       ├── SearchableDropdown
+│   │       │   ├── SearchableDropdown copy.tsx
 │   │       │   ├── SearchableDropdown.module.scss
 │   │       │   ├── SearchableDropdown.tsx
 │   │       │   └── index.ts
-│   │       └── Typography
-│   │           ├── Typography.module.scss
-│   │           └── Typography.tsx
+│   │       ├── SearchableDropdownWithLogos
+│   │       │   ├── SearchableDropdownWithLogos copy.tsx
+│   │       │   ├── SearchableDropdownWithLogos.module.scss
+│   │       │   ├── SearchableDropdownWithLogos.tsx
+│   │       │   └── index.ts
+│   │       ├── Typography
+│   │       │   ├── Typography.module.scss
+│   │       │   └── Typography.tsx
+│   │       └── index.ts
+│   ├── types
+│   │   └── emotion.d.ts
 │   ├── widgets
 │   │   ├── ApiTester
 │   │   │   └── ApiTester.tsx
@@ -278,6 +305,17 @@
 │   ├── index.css
 │   ├── main.tsx
 │   └── vite-env.d.ts
+├── temp-deploy
+│   ├── assets
+│   │   ├── index-01e6428a.css
+│   │   ├── index-6e740303.js
+│   │   ├── index-6e740303.js.map
+│   │   ├── router-48998a99.js
+│   │   ├── router-48998a99.js.map
+│   │   ├── vendor-b69f2a9f.js
+│   │   └── vendor-b69f2a9f.js.map
+│   ├── index.html
+│   └── vite.svg
 ├── .eslintrc.cjs
 ├── .gitignore
 ├── Notes.md
@@ -293,4 +331,4 @@
 ├── tsconfig.node.json
 └── vite.config.ts
 
-97 directories, 197 files
+105 directories, 227 files

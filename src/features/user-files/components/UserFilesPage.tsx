@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { UserFile, FileFilters } from '@/shared/api/types/user-file';
 import { mockUserFiles, getUniqueCategories } from '@/shared/lib/data/user-files';
-import { carBrands, CarBrand } from '@/shared/lib/data/car-data'; // Импортируем базу данных марок
+import { carBrands, CarBrand } from '@/shared/lib/data/car-data';
 import { UserFileFilters } from './UserFileFilters/UserFileFilters';
 import { UserFileUploadForm } from './UserFileUploadForm/UserFileUploadForm';
 import { PaginatedFilesGrid } from './PaginatedFilesGrid/PaginatedFilesGrid';
@@ -27,7 +27,10 @@ export const UserFilesPage: React.FC = () => {
     status: 'all',
     category: 'all',
     brand: 'all',
-    sortBy: 'newest'
+    sortBy: 'newest',
+    model: 'all',
+    generation: 'all',
+    engine: 'all'
   });
 
   // Получаем все марки из базы данных с логотипами
@@ -37,7 +40,7 @@ export const UserFilesPage: React.FC = () => {
 
   const applyFilters = useCallback((files: UserFile[], filters: FileFilters): UserFile[] => {
     let filtered = [...files];
-
+  
     if (filters.searchQuery) {
       const query = filters.searchQuery.toLowerCase();
       filtered = filtered.filter(file => 
@@ -48,19 +51,35 @@ export const UserFilesPage: React.FC = () => {
         file.engine.toLowerCase().includes(query)
       );
     }
-
+  
     if (filters.status !== 'all') {
       filtered = filtered.filter(file => file.status === filters.status);
     }
-
+  
     if (filters.category !== 'all') {
       filtered = filtered.filter(file => file.category === filters.category);
     }
-
+  
     if (filters.brand !== 'all') {
       filtered = filtered.filter(file => file.brand === filters.brand);
     }
-
+  
+    // Расширенная фильтрация по автомобильным параметрам
+    if (filters.model && filters.model !== 'all') {
+      filtered = filtered.filter(file => file.model === filters.model);
+    }
+  
+    if (filters.generation && filters.generation !== 'all') {
+      filtered = filtered.filter(file => 
+        file.supportedYears?.includes(filters.generation!) ||
+        file.compatibilityNotes?.includes(filters.generation!)
+      );
+    }
+  
+    if (filters.engine && filters.engine !== 'all') {
+      filtered = filtered.filter(file => file.engine === filters.engine);
+    }
+  
     switch (filters.sortBy) {
       case 'newest':
         filtered.sort((a, b) => new Date(b.uploadDate).getTime() - new Date(a.uploadDate).getTime());
@@ -77,7 +96,7 @@ export const UserFilesPage: React.FC = () => {
       default:
         break;
     }
-
+  
     return filtered;
   }, []);
 
@@ -107,7 +126,10 @@ export const UserFilesPage: React.FC = () => {
       status: 'all',
       category: 'all',
       brand: 'all',
-      sortBy: 'newest'
+      sortBy: 'newest',
+      model: 'all',
+      generation: 'all',
+      engine: 'all'
     });
   }, []);
 
@@ -115,7 +137,10 @@ export const UserFilesPage: React.FC = () => {
     return filters.searchQuery !== '' || 
            filters.status !== 'all' || 
            filters.category !== 'all' || 
-           filters.brand !== 'all';
+           filters.brand !== 'all' ||
+           (filters.model !== undefined && filters.model !== 'all') ||
+           (filters.generation !== undefined && filters.generation !== 'all') ||
+           (filters.engine !== undefined && filters.engine !== 'all');
   }, [filters]);
 
   return (
@@ -124,8 +149,9 @@ export const UserFilesPage: React.FC = () => {
         <UserFileFilters
           filters={filters}
           onFiltersChange={setFilters}
-          brands={allBrands} // Передаем все марки с логотипами
+          brands={allBrands}
           categories={getUniqueCategories()}
+          enableCarFilter={true}
         />
 
         <PaginatedFilesGrid

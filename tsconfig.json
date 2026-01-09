@@ -6,6 +6,8 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "baseUrl": ".",
+    "jsxImportSource": "@emotion/react",
+    "types": ["@emotion/react/types/css-prop"],
     "paths": {
       "@/*": ["./src/*"],
       "@/app/*": ["./src/app/*"],
